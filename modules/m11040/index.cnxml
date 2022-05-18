@@ -1,0 +1,273 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+	<title>PSI-BLAST</title>
+	<metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>b6b74476-0326-4be9-bd0d-9fc85eeea251</md:uuid>
+</metadata>
+	<content>
+		<para id="intro">
+			<cite target-id="psiblast"><cite-title>PSI-BLAST</cite-title></cite> (1)
+(Position-Specific Iterated BLAST) is a tool that produces a position-specific scoring matrix constructed from a multiple alignment of the top-scoring BLAST responses to a given query sequence.  This scoring matrix produces a profile designed to identify the key positions of conserved amino acids within a motif.  When a profile is used to search a database, it can often detect subtle relationships between proteins that are distant structural or functional homologues.  These relationships are often not detected by a BLAST search with a sample sequence query. 
+    </para>
+		<para id="para1a">
+For an oversimplified example of what a consensus sequence, or profile, looks like, consider that the EF-hand binding loop of the calmodulin family could be represented as follows:
+    </para>
+		<code display="block" id="idp8873824">
+        Loop Position #         1   3 4  5  6   8       12
+        Profile                 D x D G D/N G x I x x x E
+        </code>
+		<para id="space1">
+		</para>
+		<para id="para1b">
+Here "x" stands for positions where there is variability in amino acid type, and therefore, that position is not heavily weighted in the alignment.  Comparing the profile to some actual binding loop sequences from different calmodulins is the best way to illustrate the derivation of this profile. 
+    </para>
+		<code display="block" id="idm904016">
+                POSITION #      1   3 4 5 6   8       12
+                CALM_HUMAN_1    D K D G D G T I T T K E
+                CALF_NAEGR_1    D K D G D G T I T T S E
+                CALM_SCHPO_1    D R D Q D G N I T S N E
+
+                CALM_HUMAN_2    D A D G N G T I D F P E
+                CALF_NAEGR_2    D A D G N G T I D F T E
+                CALM_SCHPO_2    D A D G N G T I D F T E
+
+                CALM_HUMAN_3    D K D G N G Y I S A A E
+                CALF_NAEGR_3    D K D G N G F I S A Q E 
+                CALM_SCHPO_3    D K D G N G Y I T V E E
+
+                CALM_HUMAN_4    D I D G D G Q V N Y E E
+                CALF_NAEGR_4    D I D G D N Q I N Y T E
+                CALM_SCHPO_4    D T D G D G V I N Y E E
+</code>
+		<para id="space2">
+		</para>
+		<para id="para1c">
+The rules for deriving this simple profile are: 1) any position with 90% amino acid identity or greater is considered conserved in the profile, and thus a higher score would be given when the conserved amino acid is found at that position in the sequence,  and 2) any position that always contains one of only two types of amino acids would be up-weighted to give a higher score whenever either of those two amino acids appears at that position.  A program such as PSI-BLAST will employ more sophisticated rules to create a profile than this example, of course.  It is easy to see even with these sequences that amino acid similarity could be taken into consideration in addition to amino acid identity, and exploited in the profile.  
+    </para>
+		<para id="para2">
+There are three common categories of homologues that are studied in relation to 
+biological molecules, sequence homology, structural homology, and functional 
+homology.  Sequence homology is the easiest to identify, and is therefore the 
+primary target of many bioinformatics methods.  Sequence homology yields direct
+ implications about the relatedness of proteins and their potential pathways of
+ derivation.  However, to help understand how a protein is implicated in a 
+certain disease state, or how to design a pharmaceutical that interacts with a 
+given protein, functional and/or structural information is necessary.  
+Functional homologues are relatively easy to define, as they are any two 
+proteins, or protein domains, that perform similar functions.  Structural 
+homologues contain similar "folds", which are localized regions of a molecule 
+that comprise a structural feature such as a "beta barrel" or "four helical 
+bundle" motif.  The fold can encompass the entire protein, or just one domain 
+of the protein.  A good introduction to the topic of protein folds can be found 
+at the website for the Internet Course on <link url="http://www.cryst.bbk.ac.uk/PPS95/course/8_folds/">
+The Principles of Protein Structure </link> organized by 
+<cite target-id="structure"><cite-title>Birkbeck College</cite-title></cite> (2).
+When considering sequence, functional, or structural homology, it is important 
+to understand that one type of homology between proteins does not always infer 
+another type of homology. Nevertheless, it is a reasonable assumption that 
+proteins that are related through evolutionary pathways are likely to have 
+some degree of all three types of homology.  PSI-BLAST was engineered to 
+identify distant relationships between sequences that are too subtle to 
+discover with a regular BLAST search.
+    </para>
+		<para id="para3">
+In the first round, PSI-BLAST is just like a normal BLAST; 
+it finds sequence homologues. In the second round or "iteration" of PSI-BLAST, 
+it figures out which residues tend to be conserved by creating a custom profile 
+for each position of the sequence from a multiple alignment. Then another BLAST 
+is performed, using the profile to produce a position-specific scoring matrix 
+based on which positions evolution has conserved vs. which positions evolution 
+has allowed to vary.  The sequences found after the first round are added to 
+the profile, allowing PSI-BLAST to detect more distant homologues in each 
+iteration.  
+    </para>
+		<para id="para4">  
+One of the known weaknesses of PSI-BLAST is that its ability to detect distant 
+relationships between proteins is critically dependent on the choice of the 
+query sequence.  For this reason, a recommended strategy with PSI-BLAST is to 
+query using individual functional domains.  PSI-BLAST will then find other 
+proteins that share this domain, even if they do not possess overall homology.  
+To acquaint the new user with PSI-BLAST, this tutorial mimics an investigation 
+performed by 
+<cite target-id="aravind"><cite-title>Aravind and Koonin </cite-title></cite> (3) in 1999, 
+wherein new members of the HSP70/actin protein family were identified, except 
+the analysis in our tutorial will be on a much smaller scale than that 
+presented in the paper.  The HSP70/actin family members were originally 
+recognized to have a common evolutionary origin as a result of a study 
+performed by 
+ <cite target-id="bork"><cite-title>Bork et al.</cite-title></cite> (4) in 1992.  
+A structural superposition of the structures of actin, hexokinase, and the 
+molecular chaperonin hsp70, and alignment of many sequences in each of the 
+three families, uncovered a set of common conserved residues, distributed in 
+five sequence motifs, that are involved in ATP binding and in a flexible 
+interdomain hinge.  Although each of these proteins performs very different 
+functions, and their sequences are quite divergent, the similarity in the fold 
+of the ATP-binding domain is visually recognizable. These are all ATP-dependent 
+enzymes and the patterns discovered by Bork and associates could not be 
+detected by traditional BLAST-type sequence searches.  Therefore, Aravind and 
+Koonin chose this family as a test of PSI-BLAST's ability to detect distant 
+evolutionary relationships. 
+
+  </para>
+		<para id="para5">Aravind and Koonin chose actin from the PDB file with accession code 1atn as 
+one of their query sequences.  Begin the query by retrieving this sequence 
+from the <link url="http://www.rcsb.org/pdb/">PDB</link>.  Check the box for 
+searching the PDB archive that says "PDB ID", then enter the 
+accession code 1atn as the query.  Notice that the crystal structure deposited 
+in this entry contained DNase I complexed with actin.  There will be a link in 
+the menu in the blue border on the left entitled "FASTA Sequence", select 
+this link to download the sequence file. This file will contain
+two sequences 1ATN:A (actin) and 1ATN:D (DNase I).  Copy the sequence for 
+1ATN:A and paste it into the <link url="http://www.ncbi.nlm.nih.gov/BLAST/">
+BLAST</link> query box that arises from choosing the Protein BLAST, then selecting "PSI-BLAST" 
+under the algorithm section.  Change the database from "nr" to "swissprot",
+but accept the default values for everything else.   Click on BLAST, then view the results.  NOTE THAT  each time another iteration of PSI-BLAST runs, the results page will indicate the iteration number.  This is very helpful for keeping track of the stage of the results.  
+</para>
+		<exercise id="ex1">
+			<problem id="idp13144832">
+				<para id="prob1">There is a statistical section at the very end of the BLAST report.  BLAST query sequence windows will be lined up with similar regions in the database, then the algorithm will try to extend the alignment with the database sequence in both directions along the query sequence.  What is the number of successful extensions for the first BLAST report?
+ 	  </para></problem>
+		</exercise>
+		<exercise id="ex2">
+			<problem id="idp8979856">
+				<para id="prob2">
+ 	  What is, by far, the most 
+          common protein shown as a hit in the list of scores?  
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex3">
+			<problem id="idm531456">
+				<para id="prob3">
+ 	  At the end of the list 
+of scores, note the section entitled "Sequences with E-values WORSE than threshold". Why is it that PSI-BLAST includes this section, but 
+BLAST does not?
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex4">
+			<problem id="idm272112">
+				<para id="prob4">
+ 	 Do any members from the Actin-like ATPase domain superfamily, other than actin
+(or actin-like proteins), show up as hits in this section? If so, name one.
+
+ 	  </para>
+			</problem>
+		</exercise>
+		<para id="para6">There are  several buttons within the results document entitled "Run PSI-BLAST 
+iteration 2"; if they are difficult to locate, there is one at the end of the list
+of descriptions and scores; click on one of these buttons
+to run a second iteration of PSI-BLAST.  
+ Look at the results window and above the graphical display,  
+it should say "Results of PSI-Blast iteration 2".    Keep track of what the next iteration 
+number should be, and make sure it matches the iteration number that PSI-BLAST 
+displays to avoid getting lost within the PSI-Blast search.  When the results appear, 
+look at the legend under the color alignment graph. It says that a yellow 
+starburst with the word "NEW" inside it indicates a new sequence that was 
+identified as a result of the most recent iteration, and a green dot indicates 
+a sequence that was already present prior to the most recent iteration.
+</para>
+		<exercise id="ex5">
+			<problem id="idp13033968">
+				<para id="prob5">What is the number of successful extensions for the second BLAST iteration? 	  </para></problem>
+		</exercise>
+		<exercise id="ex6">
+			<problem id="idm1590432">
+				<para id="prob6">
+ Did the second iteration locate any new sequences 
+within (meaning less than or equal to) the threshold E-value? If so, how many?
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex7">
+			<problem id="idm826224">
+				<para id="prob7">
+Are there new members of the Actin-like ATPase domain
+superfamily in the section entitled "Sequences with E-value WORSE than threshold"? If so, name one.
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex8">
+			<problem id="idp12899872">
+				<para id="prob8">
+ How many new sequences are identified as a result of the third iteration?
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex9">
+			<problem id="idp5400352">
+				<para id="prob9">
+Are there new sequences returned that are within the 
+threshold E-value that are NOT actin or actin-like proteins?  If so, name one.
+ 	  </para>
+			</problem>
+		</exercise>
+		<para id="para7">
+
+Finally, perform the first iteration of the PSI-BLAST search with the same query
+sequence as above, but with the database set to "nr". 
+</para>
+		<exercise id="ex10">
+			<problem id="idp13408032">
+				<para id="prob10">What is the number of successful extensions for the first BLAST report when searching the nr database? 	  </para></problem>
+		</exercise>
+		<para id="para7a">
+  
+The "swissprot"  database is a curated database, and all the descriptions on 
+the return list were informative.  However, searching against the large "nr" 
+database yields a list of returns that should contain some proteins described
+as "unknown", or "unnamed".  The advantage of "nr" is that usually many more hits are 
+returned.  Sometimes this is desirable, and sometimes it is not, but it is one thing
+to consider when designing a PSI-BLAST search strategy.
+  </para>
+		<para id="conclusion">
+A PSI-BLAST search can be forced to include more sequences in the profile at a 
+given iteration by altering the threshold.  The default value is to accept any 
+results with E values less than 0.005.  It is common to change this threshold 
+to 0.05 if the PSI-BLAST converges too quickly at 0.005.  We did not take our 
+search to convergence, that would require continuing iterations until the last
+iteration did not return any new hits.  As this tutorial 
+illustrates, PSI-BLAST is a useful tool, but it often requires putting some 
+thought into the search strategy before it will produce meaningful results.
+  </para>
+	</content>
+	<bib:file>
+		<bib:entry id="psiblast">
+			<bib:article>
+				<bib:author>  Altschul et al.</bib:author>
+				<bib:title>Gapped Blast and PSI-Blast: a new generation of protein database search 
+                   programs</bib:title>
+				<bib:journal>Nucleic Acids Research</bib:journal>
+				<bib:year>1997</bib:year>
+				<bib:pages>25(17):3389-3402</bib:pages>
+			</bib:article>
+		</bib:entry>
+		<bib:entry id="structure">
+			<bib:misc>
+				<bib:title>Internet Course on The Principles of 
+Protein Structure, a collaboration between Birkbeck College and the Virtual 
+School of Natural Sciences(VSNS) of the Globewide Network Academy (GNA)</bib:title>
+				<bib:note> http://www.cryst.bbk.ac.uk/PPS95/</bib:note>
+			</bib:misc>
+		</bib:entry>
+		<bib:entry id="aravind">
+			<bib:article>
+				<bib:author> Aravind and Koonin </bib:author>
+				<bib:title> Gleaning 
+non-trivial structural,functional and evolutionary information about proteins 
+by interative database searches</bib:title>
+				<bib:journal>JMB </bib:journal>
+				<bib:year> 1999 </bib:year>
+				<bib:pages> 287:1023-1040 </bib:pages>
+			</bib:article>
+		</bib:entry>
+		<bib:entry id="bork">
+			<bib:article>
+				<bib:author> Bork P, Sander C, Valencia A.   </bib:author>
+				<bib:title> An ATPase domain common to prokaryotic cell cycle proteins, sugar kinases, 
+actin, and hsp70 heat shock proteins</bib:title>
+				<bib:journal> Proc Natl Acad Sci U S A</bib:journal>
+				<bib:year> 1992</bib:year>
+				<bib:pages> 89(16):7290-4</bib:pages>
+			</bib:article>
+		</bib:entry>
+	</bib:file>
+</document>

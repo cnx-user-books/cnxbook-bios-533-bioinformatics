@@ -1,0 +1,686 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+  <title>Expasy Proteomics Tools</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>fe54153c-52b7-4c38-b9f9-6711d9a32201</md:uuid>
+</metadata>
+
+
+
+  <content>
+    <para id="intro">
+A proteome is the collection of all the proteins within a given organism, 
+in the same way a genome is the collection of all the genes within a given 
+organism.  A proteome has some characteristics that are quite different from 
+a genome, however.  A principal difference is the fact that while a particular 
+organism will have the same set of identical DNA in any undamaged, healthy cell 
+throughout its lifetime, the organism's proteins will differ greatly from one 
+tissue to another, and from one life stage to another.  Furthermore, proteins 
+commonly incur a variety of chemical modifications after they are made.
+These modifications are critical for proper protein functioning and/or 
+regulation, and moreover, these modifications cannot be determined with 
+certainty by looking at the DNA sequence alone. In a contempary high-throughput 
+proteomics laboratory, the number of proteins identified and analyzed in one 
+day can be on the order of hundreds.
+    </para>
+    <para id="para1">
+The term “proteome” was originally coined by an Australian scientist, 
+<cite target-id="proteome"><cite-title>Mark Wilkins</cite-title></cite> (1), to describe the "PROTEin complement of the genOME".  
+The term "proteomics" is used relatively loosely to describe any and all of the 
+collection of high throughput techniques that have emerged to enable the 
+scientist to analyze all the proteins expressed under a certain set of 
+conditions within an individual cell or organism.  
+The <cite target-id="expasy"><cite-title>ExPASy</cite-title></cite> (Expert Protein Analysis System) website (2), 
+Swiss Institute of Bioinformatics, offers the definition that 
+"proteomics can be defined as the qualitative and quantitative comparison of 
+proteomes under different conditions to further unravel biological processes."
+    </para>
+    <para id="para2a">
+Common techniques for identifying the proteins within a proteome are 2D-PAGE 
+(polyacrylamide gel electrophoresis) gels, amino acid (AA) composition analysis,
+ peptide mass fingerprinting and other mass spectroscopy applications.  
+A good starting point for becoming acquainted with 2D gels is the 
+<link url="http://www.aber.ac.uk/parasitology/Proteome/Tut_2D.html#Section%201">
+2D PAGE tutorial</link> offered by the Institute of Biological Sciences, 
+University of Wales at Aberystwyth.  ExPASy offers a good synopsis of 
+<link url="http://us.expasy.org/ch2d/protocols/protocols.fm13.html">
+peptide mass fingerprinting and AA composition analysis</link> techniques, 
+for those who are unfamiliar with these methods.  
+    </para>
+    <para id="para2b">
+At the <link url="http://us.expasy.org/tools/">
+ExPASy Proteomics Tools server</link>, the first category of tools are for 
+protein identification and characterization.  Take a look at the tools listed 
+in this section.  These tools are designed to identify the proteins that make 
+up the proteome of study, using the data received from gels, AA analysis and 
+mass spectroscopy experiments.
+</para>
+		<exercise id="ex1">
+			<problem id="idm675680">
+				<para id="prob1">
+What tool from the ExPASy "protein identification and characterization" 
+section would you use for identifying a protein for which you only know the 
+amino acid composition?
+ 	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex2">
+			<problem id="idm9616992">
+				<para id="prob2">
+  What is the name of at least one peptide mass fingerprint tool
+ at the ExPASy site?
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex3">
+			<problem id="idm10802592">
+				<para id="prob3">
+Generally outline the underlying principles that allow the identification of a protein through peptide mass fingerprinting.
+ 	  </para>
+			</problem>
+		</exercise>
+	
+    <para id="para3">
+Scroll down on the ExPASy tools webpage to the section entitled "pattern and 
+profile searches".  The tools that populate this section are designed to 
+identify proteins that belong to well characterized protein families, 
+usually identified by conserved domains within family members.  
+Also, well known protein motifs, or domains, are represented independently 
+of their protein families in pattern databases that contain the conserved 
+aspects of the domain sequence.  Select the tool entitled <cite target-id="interpro"><cite-title>
+"InterPro Scan"</cite-title></cite> (3) 
+to perform an integrated search in PROSITE, Pfam, PRINTS and other family 
+and domain databases.  This tool is useful for identifying specific domains 
+or motifs within a protein, once  the sequence has been determined, and can 
+sometimes recognize the protein as a member of an established protein family.  
+Test the efficacy of this tool with the following sequences, one at a time, but make sure 
+the interactive run button is selected.  An email address will be required 
+to submit the job, but the results can be viewed in the browser interactively.
+
+    </para>
+    <code display="block" id="idm2008368">
+&gt;Seq1 
+MAGIAAKLAKDREAAEGLGSHERAIKYLNQDYEALRNECLEAGTLFQDPSFPAIPSALGFKELGPYSSKT
+RGIEWKRPTEICADPQFIIGGATRTDICQGALGDCWLLAAIASLTLNEEILARVVPLNQSFQENYAGIFH
+FQFWQYGEWVEVVVDDRLPTKDGELLFVHSAEGSEFWSALLEKAYAKINGCYEALSGGATTEGFEDFTGG
+IAEWYELKKPPPNLFKIIQKALQKGSLLGCSIDITSAADSEAITFQKLVKGHAYSVTGAEEVESNGSLQK
+LIRIRNPWGEVEWTGRWNDNCPSWNTIDPEERERLTRRHEDGEFWMSFSDFLRHYSRLEICNLTPDTLTS
+DTYKKWKLTKMDGNWRRGSTAGGCRNYPNTFWMNPQYLIKLEEEDEDEEDGESGCTFLVGLIQKHRRRQR
+KMGEDMHTIGFGIYEVPEELSGQTNIHLSKNFFLTNRARERSDTFINLREVLNRFKLPPGEYILVPSTFE
+PNKDGDFCIRVFSEKKADYQAVDDEIEANLEEFDISEDDIDDGVRRLFAQLAGEDAEISAFELQTILRRV
+LAKRQDIKSDGFSIETCKIMVDMLDSDGSGKLGLKEFYILWTKIQKYQKIYREIDVDRSGTMNSYEMRKA
+LEEAGFKMPCQLHQVIVARFADDQLIIDFDNFVRCLVRLETLFKIFKQLDPENTGTIELDLISWLCFSVL
+
+&gt;Seq2
+SGPRPVVLSGPSGAGKSTLLKRLLQEHSGIFGFSVSHTTRNPRPGEENGKDYYFVTREVM
+QRDIAAGDFIEHAEFSGNLYGTSKVAVQAVQAMNRICVLDVDLQGVRNIKATDLRPIYIS
+VQPPSLHVLEQRLRQRNTETEESLVKRLAAAQADMESSKEPGLFDVVIINDSLDQAYAEL
+KEALSEEIKKAQRTGA
+
+
+&gt;Seq3
+MTEVISNKITAKDGATSLKDIDDKRWVWISDPETAFTKAWIKEDLPDKKYVVRYNNSRDE
+KIVGEDEIDPVNPAKFDRVNDMAELTYLNEPAVTYNLEQRYLSDQIYTYSGLFLVAVNPY
+CGLPIYTKDIIQLYKDKTQERKLPHVFAIADLAYNNLLENKENQSILVTGESGAGKTENT
+KRIIQYLAAIASSTTVGSSQVEEQIIKTNPVLESFGNARTVRNNNSSRFGKFIKVEFSLS
+GEISNAAIEWYLLEKSRVVHQNEFERNYHVFYQLLSGADTALKNKLLLTDNCNDYRYLKD
+SVHIIDGVDDKEEFKTLLAAFKTLGFDDKENFDLFNILSIILHMGNIDVGADRSGIARLL
+NPDEIDKLCHLLGVSPELFSQNLVRPRIKAGHEWVISARSQTQVISSIEALAKAIYERNF
+GWLVKRLNTSLNHSNAQSYFIGILDIAGFEIFEKNSFEQLCINYTNEKLQQFFNHHMFVL
+EQEEYMKEEIVWDFIDFGHDLQPTIDLIEKANPIGILSCLDEECVMPKATDATFTSKLDA
+LWRNKSLKYKPFKFADQGFILTHYAADVPYSTEGWLEKNTDPLNENVAKLLAQSTNKHVA
+TLFSDYQETETKTVRGRTKKGLFRTVAQRHKEQLNQLMNQFNSTQPHFIRCIVPNEEKKM
+HTFNRPLVLGQLRCNGVLEGIRITRAGFPNRLPFNDFRVRYEIMAHLPTGTYVESRRASV
+MILEELKIDEASYRIGVSKIFFKAGVLAELEERRVATLQRLMTMLQTRIRGFLQRKIFQK
+RLKDIQAIKLLQANLQVYNEFRTFPWAKLFFNLRPLLSSTQNDKQLKKRDAEIIELKYEL
+KKQQNSKSEVERDLVETNNSLTAVENLLTTERAIALDKEEILRRTQERLANIEDSFSETK
+QQNENLQRESASLKQINNELESELLEKTSKVETLLSEQNELKEKLSLEEKDLLDTKGELE
+SLRENNATVLSEKAEFNEQCKSLQETIVTKDAELDKLTKYISDYKTEIQEMRLTNQKMNE
+KSIQQEGSLSESLKRVKKLERENSTLISDVSILKQQKEELSVLKGVQELTINNLEEKVNY
+LEADVKQLPKLKKELESLNDKDQLYQLQATKNKELEAKVKECLNNIKSLTKELENKEEKC
+QNLSDASLKYIELQEIHENLLLKVSDLENYKKKYEGLQLDLEGLKDVDTNFQELSKKHRD
+LTFNHESLLRQSASYKEKLSLASSENKDLSNKVSSLTKQVNELSPKASKVPELERKITNL
+MHEYSQLGKTFEDEKRKALIASRDNEELRSLKSELESKRKLEVEYQKVLEEVKTTRSLRS
+EVTLLRNKVADHESIRSKLSEVEMKLVDTRKELNSALDSCKKREAEIHRLKEHRPSGKEN
+NIPAVKTTEPVLKNIPQRKTIFDLQQRNANQALYENLKRDYDRLNLEKHNLEKQVNELKG
+AEVSPQPTGQSLQHVNLAHAIELKALKDQINSEKAKMFSVQVQYEKREQELQKRIASLEK
+VNKDSLIDVRALRDRIASLEDELRAA
+
+
+    </code>
+    <para id="para4">
+View the results for Sequence 1. 
+The first column of the results table identifies 
+whether or not the match is of
+type "family" or of type "domain".
+The family and domain names appear at the top of each 
+box in the second column of the results 
+page, the same column that contains the diagrams 
+which show the localization of the
+section of sequence that has been identified with 
+the referenced family or domain. 
+</para>
+		<exercise id="ex4">
+			<problem id="idm3492656">
+				<para id="prob4">
+How many matches were of the type "family"?
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex5">
+			<problem id="idm2712672">
+				<para id="prob5">
+How many were domains?
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex6">
+			<problem id="idm2183440">
+				<para id="prob6">
+What are the names of the families identified with this sequence?
+ 	  </para>
+			</problem>
+		</exercise>	
+     	        <exercise id="ex7">
+			<problem id="idp886960">
+				<para id="prob7">
+List any domains that were identified within Sequence 1.
+ 	  </para>
+			</problem>
+		</exercise>
+    <para id="para4a">
+View the results for Sequence 2.
+    </para>
+     	        <exercise id="ex8">
+			<problem id="idm2731120">
+				<para id="prob8">
+How many families were returned as matches? 
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex9">
+			<problem id="idm10438784">
+				<para id="prob9">
+How many domains? 
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex10">
+			<problem id="idm8962592">
+				<para id="prob10">
+What families were identified with this sequence?
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex11">
+			<problem id="idm3706112">
+				<para id="prob11">
+List any domains that were identified within Sequence 2.
+ 	  </para>
+			</problem>
+		</exercise>
+
+    <para id="para4b">
+View the results for Sequence 3.
+    </para>
+     	        <exercise id="ex12">
+			<problem id="idm2390896">
+				<para id="prob12">
+How many families were returned as matches?  
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex13">
+			<problem id="idm2176432">
+				<para id="prob13">
+How many domains?  
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex14">
+			<problem id="idm9508336">
+				<para id="prob14">
+ What families were identified with this sequence?
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex15">
+			<problem id="idm664768">
+				<para id="prob15">
+List any domains that were identified within Sequence 3.
+ 	  </para>
+			</problem>
+		</exercise>
+
+    <para id="para5">  
+Return to the <link url="http://us.expasy.org/tools/">
+ExPASy Proteomics Tools server</link>.  Now, scroll down to the section 
+entitled "post-translational modification prediction".  
+Use <cite target-id="netphos"><cite-title>NetPhos</cite-title></cite> (4) to predict possible sites for serine, threonine and tyrosine 
+phosphorylation on the three sequences above (all 3 sequences can be entered 
+as one query).  Accept the default values and select "submit".  For help 
+interpreting the results, view the <link url="http://www.cbs.dtu.dk/services/NetPhos-2.0/output.html">
+NetPhos output format</link>.
+    </para>
+     	        <exercise id="ex16">
+			<problem id="idp1050832">
+				<para id="prob16">
+How many (a) serine, (b) threonine, and 
+    (c) tyrosine phosphorylation sites are predicted for Sequence 1?
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex17">
+			<problem id="idm467168">
+				<para id="prob17">
+How many (a) serine, (b) threonine, and 
+    (c) tyrosine phosphorylation sites are predicted for Sequence 2?
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex18">
+			<problem id="idp1500928">
+				<para id="prob18">
+How many (a) serine, (b) threonine, and 
+    (c) tyrosine phosphorylation sites are predicted for Sequence 3?
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex19">
+			<problem id="idm8984560">
+				<para id="prob19">
+Are there any serine, threonine and tyrosine in the sequence that were not listed as a potential phosphorylation site? 
+If so, explain why some of the residues were not listed as predicted phosphorylation sites. (Those uncertain about the answer to this question should view the above link explaining the output.)
+ 	  </para>
+			</problem>
+		</exercise>
+<para id="para6">
+Once a protein sequence has been determined
+through proteomics techniques, bioinformatics can be used to predict certain
+types of topology.  Topology is the sequence of secondary structure elements
+within a protein.  The most basic secondary structure elements within proteins are the alpha helix, the beta sheet and the random coil.  However, some
+algorithms will predict topological features that are closely related to
+<foreign>in vivo</foreign>
+localization, such as signal sequences and transmembrane helices.
+    </para>
+<para id="para7a">At the <link url="http://us.expasy.org/tools/">
+ExPASy Proteomics Tools server</link>, scroll down on the ExPASy tools
+webpage to the section entitled "topology prediction".  This section
+contains tools that predict localization and sorting signals, as well
+as transmembrane regions within proteins.  <cite target-id="knn"><cite-title>PSORT</cite-title></cite> (5) is
+ a computer program
+for the prediction of protein localization. It requires input of an amino
+acid sequence and its source organism; and it searches for known,
+organism-specific protein sorting signals.  It returns a list of candidate
+localization sites, accompanied by a score indicating the probability the
+protein encoded by the input sequence would be localized to that site.  To
+explore the use of PSORT, click on the PSORT link on the ExPASy tool page.
+Choose the "PSORT II" for eukaryotic sequences, and select the PSORT II Prediction.  Cut and paste the following sequence for diacylglycerol kinase from Rattus norvegicus into the query box and click
+"Submit".
+    </para>
+<code display="block" id="idm1830384">
+MEPRDPSPEARSSDSESASASSSGSERDADPEPDKAPRRLTKRRFPGLRLFGHRKAITKSGLQHLAPPPP
+TPGAPCGESERQIRSTVDWSESAAYGEHIWFETNVSGDFCYVGEQYCVAKMLPKSAPRRKCAACKIVVHT
+PCIGQLEKINFRCKPSFRESGSRNVREPTFVRHHWVHRRRQDGKCRHCGKGFQQKFTFHSKEIVAISCSW
+CKQAYHSKVSCFMLQQIEEPCSLGVHAAVVIPPTWILRARRPQNTLKASKKKKRASFKRRSSKKGPEEGR
+WRPFIIRPTPSPLMKPLLVFVNPKSGGNQGAKIIQSFLWYLNPRQVFDLSQGGPREALEMYRKVHNLRIL
+ACGGDGTVGWILSTLDQLRLKPPPPVAILPLGTGNDLARTLNWGGGYTDEPVSKILSHVEEGNVVQLDRW
+DLRAEPNPEAGPEERDDGATDRLPLDVFNNYFSLGFDAHVTLEFHESREANPEKFNSRFRNKMFYAGTAF
+SDFLMGSSKDLAKHIRVVCDGMDLTPKIQDLKPQCIVFLNIPRYCAGTMPWGHPGEHHDFEPQRHDDGYL
+EVIGFTMTSLAALQVGGHGERLTQCREVLLTTAKAIPVQVDGEPCKLAASRIRIALRNQATMVQKAKRRS
+TAPLHSDQQPVPEQLRIQVSRVSMHDYEALHYDKEQLKEASVPLGTVVVPGDSDLELCRAHIERLQQEPD
+GAGAKSPMCHPLSSKWCFLDATTASRFYRIDRAQEHLNYVTEIAQDEIYILDPELLGASARPDLPTPTSP
+LPASPCSPTPGSLQGDAALPQGEELIEAAKRNDFCKLQELHRAGGDLMHRDHQSRTLLHHAVSTGSKEVV
+RYLLDHAPPEILDAVEENGETCLHQAAALGQRTICHYIVEAGASLMKTDQQGDTPRQRAEKAQDTELAAY
+LENRQHYQMIQREDQETAV
+
+
+</code>
+    <para id="para7b">
+First, view the "k-NN" results by scrolling to the bottom of the page.
+The k-nearest neighbor (k-NN) algorithm takes the
+output of the many
+subprograms and determines a probability of localization at each candidate
+site within the cell using all of the predictions.
+     </para>
+     	        <exercise id="ex20">
+			<problem id="idm10310416">
+				<para id="prob20">
+What is the probability the sequence encodes a protein that is
+     (a) secreted by vesicles?
+     (b) localized to the endoplasmic reticulum?
+     (c) cytoplasmic? or
+     (d) localized to the nucleus?
+ 	  </para>
+			</problem>
+		</exercise>
+    <para id="para7c">
+Now, scroll through the results of the subprograms.  Clicking on the links will
+reveal a brief description of the algorithm each individual subprogram  utilizes.
+    </para>
+     	        <exercise id="ex21">
+			<problem id="idm2519360">
+				<para id="prob21">
+What is the localization prediction and reliability
+score produced by the NNCN subprogram, Reinhardt's methods for
+cytoplasmic/nuclear discrimination?
+ 	  </para>
+			</problem>
+		</exercise>
+    <para id="para7d">The first two subprograms, PSG and GvH, are tools that predict N-terminal signal peptide
+sequences.  Just after their results are listed, there is a statement
+summarizing whether or not an N-terminal signal peptide has been predicted
+for the query sequence.
+    </para>
+     	        <exercise id="ex22">
+			<problem id="idm9070896">
+				<para id="prob22">
+Do these subprograms predict an N-terminal
+signal peptide for the diacylglycerol kinase query?
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex23">
+			<problem id="idp353840">
+				<para id="prob23">
+After looking over all the results,
+what is the most likely localization of our query protein?
+ 	  </para>
+			</problem>
+		</exercise>
+    <para id="para7e">
+Read the title and abstract for this
+<link url="http://www.pnas.org/cgi/content/abstract/93/20/11196">
+article</link> on the Rat diacylglycerol kinase used for the query sequence.
+    </para>
+     	        <exercise id="ex24">
+			<problem id="idm9664480">
+				<para id="prob24">
+Was PSORT able to predict the correct localization,
+using the sequence information alone?
+ 	  </para>
+			</problem>
+		</exercise>
+
+<para id="para8">
+Return to the <link url="http://us.expasy.org/tools/">ExPASy tools</link>,
+and scroll to the section entitled "primary structure analysis".
+Click on the link for the ProtParam tool.  ProtParam is a suite of programs
+designed to predict various chemical and physical properties about a protein
+from its sequence.  ProtParam will yield an estimated extinction coefficient
+at selected wavelengths based on protein sequence <cite target-id="extcoeff"><cite-title> (6)</cite-title></cite>,
+an estimation of the <foreign>in vivo</foreign> half-life of the protein
+(<cite target-id="invivo4"><cite-title>7</cite-title></cite> <cite target-id="invivo5"><cite-title>8</cite-title></cite>
+<cite target-id="invivo6"><cite-title>9</cite-title></cite> <cite target-id="invivo7"><cite-title>10</cite-title></cite>), an instability index
+<cite target-id="instability"><cite-title>(11)</cite-title></cite>, an aliphatic index <cite target-id="aliphatic"><cite-title>
+(12)</cite-title></cite>, and an average value for hydropathicity <cite target-id="hydro"><cite-title>(13)</cite-title></cite>.
+Cut and paste the Rat diacylglycerol
+kinase sequence above into the query box and click on "compute parameters".
+</para>
+
+     	        <exercise id="ex25">
+			<problem id="idp3521296">
+				<para id="prob25">
+What is the molecular weight computed from the sequence?
+ 	  </para>
+			</problem>
+		</exercise>
+
+     	        <exercise id="ex26">
+			<problem id="idp986944">
+				<para id="prob26">
+What does the amino acid composition analysis show as the most common amino acid in this protein? (Is that unusual?)
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex27">
+			<problem id="idp242432">
+				<para id="prob27">
+What is the chemical formula for the query protein?
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex28">
+			<problem id="idp958896">
+				<para id="prob28">
+What is the predicted extinction coefficient at 280 nm, in 6M guanidium HCl, 0.02M phosphate, pH6.5 buffer, assuming all cysteines appear as half cysteines?
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex29">
+			<problem id="idp2776128">
+				<para id="prob29">
+In what way could it be helpful to know the extinction coefficient?
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex30">
+			<problem id="idm2874208">
+				<para id="prob30">
+According to the instability index, is this protein classified as stable or unstable?
+ 	  </para>
+			</problem>
+		</exercise>
+<para id="para9">
+Return again to the <link url="http://us.expasy.org/tools/">
+ExPASy tools</link>.  Notice there are two sections dealing with structure
+prediction, secondary structure prediction tools and tertiary structure
+prediction and visualization tools.  The secondary structure prediction
+tools are designed to predict features such as the helical content, the beta
+sheet formations,  and the turns, loops, and coil regions within a protein,
+given the sequence.  
+</para>
+
+     	        <exercise id="ex31">
+			<problem id="idm9152304">
+				<para id="prob31">
+Explore the secondary
+structure tools independently, and submit the diacylglycerol kinase sequence
+above to any of the available secondary structure prediction tools.
+Most of these tools will email the results, with at least
+a 20 minute delay between submission and receipt of results.  Forward a
+results summary to the instructor, outlining the predictions created by
+the program of choice.
+ 	  </para>
+			</problem>
+		</exercise>
+
+<para id="para9a">
+Tertiary structure prediction tools match the query
+sequence with sequences, or partial sequences, of proteins where the 3-D
+structure has been published in the Protein Data Bank (PDB).  These tools
+will produce a model of the query protein by piecing together the structural
+regions from the best matches in the PDB, and threading the query sequence
+through the predicted structure.  For more detailed explanations of available
+3-D structure prediction software, view the
+<link url="http://www.expasy.org/swissmod/SM_Demo_FA.html">
+Swiss-Model demo page</link> and the
+<link url="http://geno3d-pbil.ibcp.fr/cgi-bin/geno3d_automat.pl?page=/GENO3D/geno3d_references.html">
+Geno3D reference page</link>.  Although both of these tools are searching for
+templates from existing PDB entries, they are doing this in different ways.
+</para>
+
+     	        <exercise id="ex32">
+			<problem id="idm3453792">
+				<para id="prob32">
+What program does Swiss-Model use to match the
+     query sequence with sequences of known structures?
+ 	  </para>
+			</problem>
+		</exercise>
+     	        <exercise id="ex33">
+			<problem id="idp240576">
+				<para id="prob33">
+ What program does Geno3D use to match the query
+     sequence with sequences of known structures?
+ 	  </para>
+			</problem>
+		</exercise>
+
+
+<para id="para9b">
+Notice that the template selection process and the model structure refinement
+processes are different between these two programs as well.
+    </para>
+
+    <para id="para10">
+Finally, in the tertiary structure section of the ExPASy tools page, Swiss PDB
+Viewer is a graphical tool for the visualization, comparison and analysis of
+3-D coordinate files.  Swiss PDB Viewer can superimpose 3-D structures by
+finding the rotation and translation that most closely aligns the two protein
+structures.  Additionally, the Swiss PDB Viewer will perform amino acid
+mutations, prediction of hydrogen bonds, and calculation of angles and
+distances between atoms.  Best of all, Swiss PDB Viewer is freeware and
+available for many different platforms, including Macintosh, PC, SGI IRIX,
+and Linux.
+</para>
+     	        <exercise id="ex34">
+			<problem id="idp870240">
+				<para id="prob34">
+View this supplemental <link url="http://us.expasy.org/spdbv/text/gallery.htm">SPDBV web page</link>.
+What other function does Swiss PDB Viewer have, when used in conjunction with
+other applications such as OpenGL or POV-Ray?
+ 	  </para>
+			</problem>
+		</exercise>
+
+    <para id="conclusion">
+ExPASy provides a very large library of tools, for proteomics as well as other
+bioinformatics applications.For those students interested in future research in the field of proteomics, 
+this web server will be an important resource.
+   </para>
+
+  </content> 
+
+ <bib:file>
+   <bib:entry id="proteome">
+      <bib:article>
+	<bib:author>Wilkins et al. </bib:author>
+ 	<bib:title>
+Progress with gene product mapping of the Mollicutes </bib:title> 
+	<bib:journal>Electrophoresis</bib:journal>
+        <bib:year>1995</bib:year>
+        <bib:pages>16:1090-1094</bib:pages>
+      </bib:article>
+   </bib:entry>
+   <bib:entry id="expasy">
+      <bib:article>
+	<bib:author>Appel R.D., Bairoch A., Hochstrasser D.F.</bib:author>
+ 	<bib:title>A new generation of information 
+retrieval tools for biologists: the example of the ExPASy WWW server</bib:title> 
+	<bib:journal>Trends Biochem. Sci.</bib:journal>
+        <bib:year>1994</bib:year>
+        <bib:pages>19:258-260</bib:pages>
+      </bib:article>
+   </bib:entry>
+   <bib:entry id="interpro">
+      <bib:article>
+	<bib:author>Mulder N.J., Apweiler R., Attwood T.K., Bairoch A., Barrell D., Bateman A., Binns D., Biswas M., Bradley P., Bork P., Bucher P., Copley R.R., Courcelle E., Das U., Durbin R., Falquet L., Fleischmann W., Griffiths-Jones S., Haft D., Harte N., Hulo N., Kahn D., Kanapin A., Krestyaninova M., Lopez R., Letunic I., Lonsdale D., Silventoinen V., Orchard S.E., Pagni M., Peyruc D., Ponting C.P., Selengut J.D., Servant F., Sigrist C.J.A., Vaughan R, Zdobnov E.M.</bib:author>
+ 	<bib:title>The InterPro Database, 2003 brings increased coverage and new features</bib:title> 
+	<bib:journal>Nucl. Acids. Res.</bib:journal>
+        <bib:year>2003</bib:year>
+        <bib:pages>31:315-318</bib:pages>
+      </bib:article>
+   </bib:entry>
+  <bib:entry id="netphos">
+      <bib:article>
+	<bib:author>Blom, N., Gammeltoft, S., and Brunak, S. </bib:author>
+ 	<bib:title>Sequence- and structure-based prediction of eukaryotic protein phosphorylation sites</bib:title> 
+	<bib:journal>Journal of Molecular Biology</bib:journal>
+        <bib:year>1999</bib:year>
+        <bib:pages>294(5): 1351-1362</bib:pages>
+      </bib:article>
+   </bib:entry>
+
+
+   <bib:entry id="knn">
+      <bib:article>
+	<bib:author>Paul Horton and Kenta Nakai</bib:author>
+ 	<bib:title>Better Prediction of Protein Cellular Localization Sites with the k
+Nearest Neighbors Classifier</bib:title>
+	<bib:journal>Intelligent Systems for Molecular Biology</bib:journal>
+        <bib:year>1997</bib:year>
+        <bib:pages>5:147-152</bib:pages>
+      </bib:article>
+   </bib:entry>
+
+   <bib:entry id="extcoeff">
+      <bib:article>
+	<bib:author>Gill S.C., von Hippel P.H.</bib:author>
+ 	<bib:title>Calculation of protein extinction coefficients from amino acid sequence data</bib:title>
+	<bib:journal>Anal. Biochem.</bib:journal>
+        <bib:year>1989</bib:year>
+        <bib:pages>182:319-326</bib:pages>
+      </bib:article>
+   </bib:entry>
+
+   <bib:entry id="invivo4">
+      <bib:article>
+	<bib:author>Bachmair A., Finley D., Varshavsky A.</bib:author>
+ 	<bib:title>In vivo half-life of a protein is a function of its amino-terminal residue</bib:title>
+	<bib:journal>Science</bib:journal>
+        <bib:year>1986</bib:year>
+        <bib:pages>234:179-186</bib:pages>
+      </bib:article>
+   </bib:entry>
+
+   <bib:entry id="invivo5">
+      <bib:article>
+	<bib:author>Gonda D.K., Bachmair A., Wunning I., Tobias J.W., Lane W.S., Varshavsky A.</bib:author>
+ 	<bib:title>Universality and structure of the N-end rule</bib:title>
+	<bib:journal>J. Biol. Chem.</bib:journal>
+        <bib:year>1989</bib:year>
+        <bib:pages>264:16700-16712</bib:pages>
+      </bib:article>
+   </bib:entry>
+   <bib:entry id="invivo6">
+      <bib:article>
+	<bib:author>Tobias J.W., Shrader T.E., Rocap G., Varshavsky A.</bib:author>
+ 	<bib:title>The N-end rule in bacteria </bib:title>
+	<bib:journal>Science  </bib:journal>
+        <bib:year>1991</bib:year>
+        <bib:pages>254:1374-1377</bib:pages>
+      </bib:article>
+   </bib:entry>
+   <bib:entry id="invivo7">
+      <bib:article>
+	<bib:author> Ciechanover A., Schwartz A.L.</bib:author>
+ 	<bib:title>How are substrates recognized by the ubiquitin-mediated proteolytic system? </bib:title>
+	<bib:journal>Trends Biochem. Sci.  </bib:journal>
+        <bib:year>1989</bib:year>
+        <bib:pages>14:483-488</bib:pages>
+      </bib:article>
+   </bib:entry>
+
+   <bib:entry id="instability">
+      <bib:article>
+	<bib:author>Guruprasad K., Reddy B.V.B., Pandit M.W.</bib:author>
+ 	<bib:title>Correlation between stability of a protein and its dipeptide composition:
+           a novel approach for predicting in vivo stability of a protein from its primary sequence</bib:title>
+	<bib:journal>Protein Engineering</bib:journal>
+        <bib:year>1990</bib:year>
+        <bib:pages> 4:155-161</bib:pages>
+      </bib:article>
+   </bib:entry>
+
+   <bib:entry id="aliphatic">
+      <bib:article>
+	<bib:author>Ikai A.</bib:author>
+ 	<bib:title>Thermostability and aliphatic index of globular proteins</bib:title>
+	<bib:journal>J. Biochem.</bib:journal>
+        <bib:year>1980</bib:year>
+        <bib:pages>88:1895-1898</bib:pages>
+      </bib:article>
+   </bib:entry>
+
+   <bib:entry id="hydro">
+      <bib:article>
+	<bib:author>Kyte, J., Doolittle, R.F.</bib:author>
+ 	<bib:title>A simple method for displaying the hydropathic character of a protein</bib:title>
+	<bib:journal>J. Mol. Biol.</bib:journal>
+        <bib:year>1982</bib:year>
+        <bib:pages>157:105-132</bib:pages>
+      </bib:article>
+   </bib:entry>
+
+ </bib:file>  
+
+</document>

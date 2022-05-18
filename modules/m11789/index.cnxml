@@ -1,0 +1,92 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+  <title>NCBI: National Center for Biotechnology Information</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>1f462ea4-7c3a-462d-901b-ce46794b5f32</md:uuid>
+</metadata>
+
+  <content>
+    <para id="intro">
+      The National Center for Biotechnology Information (NCBI) provides a comprehensive website for biologists that includes biology-related databases, and tools for viewing and analyzing the data inherent in the databases. 
+A division of the National Library of Medicine at the National Institutes of Health, NCBI is the
+ agency responsible for creating automated systems for storing and analyzing the
+ rapidly growing profusion of genetic and molecular data.  One of the most difficult challenges faced in the field of bioinformatics is how to store, in an easily 
+accessible manner, the overwhelming abundance of new information, including the 
+sequences of entire genomes, the ongoing discoveries of new genes and gene products, and the determinations of their functions and structures.  NCBI was established
+ as the government's response to the need for more and better information processing methods to deal with this challenge. 
+    </para> 
+    <para id="para2">
+      View the <link url="http://www.ncbi.nlm.nih.gov/">NCBI home page</link>.
+  A relatively good overview of the tools and databases that can be accessed through NCBI is provided in the list along the left border of the home page.  
+Clicking on the link entitled "About NCBI" produces a second menu containing the topics "A Science Primer", and "Databases and Tools", among others.  
+Click on "A Science Primer" to access general definitions and introductory information 
+regarding the branches of science included in bioinformatics.  Many bioinformatics terms are defined in this section in a clear-cut and basic manner, 
+making this Primer an excellent first resource.  From the table at the top of the
+web page, click on "Databases and Tools" to yield
+a listing of accessible information. 
+This web page containing the databases and tools menu is a good choice for those who are inclined toward bookmarking.  
+    </para>
+    <para id="para3">
+The first item under the "Databases and Tools" menu is "Literature Databases".  
+PubMed is the most heavily used of the literature databases and can be used to access MEDLINE biological and medical scientific journal citations dating back to
+ articles written in the mid-1960's.  The second item under the "Databases and Tools"menu is "Entrez Databases". 
+<cite target-id="entrez"><cite-title>Entrez</cite-title></cite> (1)
+is a search and retrieval system developed by NCBI that is capable of accessing 
+integrated information by searching many of the NCBI databases with just one query (instead of searching only one database per query, then having to repeat the 
+query to find information on the same topic from another NCBI database).  
+The NCBI databases that are included in the search when you launch an Entrez query are
+ shown when you click on this link.  Look down the list and read the description
+for the "Protein sequence database".  Notice this database has 
+ many sources such as Swiss-Prot, PIR, PRF, PDB, and GenBank, which are all individual
+biological databases in their own right, containing different types of data about proteins.
+The Entrez accessible "Nucleotide sequence database" contains annotated 
+collections of publicly available nucleotide sequences,
+many of which are cDNA and mRNA sequences.  The evolution of bioinformatics data mining methods 
+has been largely driven by the prodigious amount of sequence information 
+collected by scientists in recent years.  New sequences of unknown function 
+can be compared with sequences of well-characterized genes and proteins.  
+Similarities can be identified between the new, unknown sequences and the 
+well-characterized sequences, and used to postulate theories regarding function 
+or structure.
+</para> 
+    <para id="para4">
+        Click on "Databases and Tools" from the table at the top of the web page.  
+Selecting the "Tools for Data Mining" topic will show a 
+list of data retrieval tools, including Entrez, mentioned above, and BLAST, the 
+<cite target-id="blast"><cite-title>Basic Local Alignment Search Tool</cite-title></cite> (2).
+Blast is the predominant sequence alignment tool for performing rapid searches of nucleotide and protein sequence databases and detecting local, as well as global, 
+sequence alignments between the query sequence and the database sequences.  
+</para> 
+    <para id="conclusion">
+      This is a brief glimpse at some of the more widely used tools 
+and databases presented by NCBI. As a final exercise, take a moment to select the
+"Outreach and Education" link from the table.  There are two links on this page that
+may prove helpful at times, "Courses and Tutorials" and "Glossaries".  There are tutorials 
+in the use of Blast, Entrez and Pubmed, among others.  Return to these as needed
+while learning the use of these tools.  The Glossaries are particularly useful 
+because bioinformatics has a lot of field-specific lingo and acronyms that can be
+relatively confusing to decipher.   
+</para> 
+   
+  </content>
+
+<bib:file>
+   <bib:entry id="entrez">
+      <bib:article>
+	<bib:author>Benson D.A., Boguski M.S., Lipman D.J., Ostell J.</bib:author>
+ 	<bib:title>GenBank</bib:title> 
+	<bib:journal>Nucleic Acids Res. </bib:journal>
+        <bib:year>1994</bib:year>
+        <bib:pages>22:3441-3444</bib:pages>
+      </bib:article>
+   </bib:entry>
+   <bib:entry id="blast">
+      <bib:article>
+	<bib:author>Altschul S.F., Gish W., Miller W., Myers E.W., Lipman D.J.</bib:author> 
+ 	<bib:title>Basic local alignment search tool</bib:title> 
+        <bib:journal>J. Mol. Biol.</bib:journal>
+        <bib:year>1990         </bib:year>
+        <bib:pages> 215:403-410</bib:pages>
+      </bib:article>
+   </bib:entry>
+</bib:file>  
+  
+</document>

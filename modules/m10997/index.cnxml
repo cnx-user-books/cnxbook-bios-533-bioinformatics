@@ -1,0 +1,192 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+  <title>PDB</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>5223077f-92a0-489f-89f9-49f74bc6c1d1</md:uuid>
+</metadata>
+
+
+
+  <content>
+    <para id="intro">
+	The Protein Data Bank (PDB) is a public domain repository containing experimentally determined structures of three-dimensional biological macromolecules. The majority of these structures have been determined by x-ray crystallography, but structures determined using nuclear magnetic resonance (NMR) methods are on the rise.  A very few theoretical models are also included in the PDB.  The PDB was originally established at  
+<cite target-id="bnl"><cite-title>Brookhaven National Laboratory</cite-title></cite> (1)
+ in October, 1971, with 7 structures. It is currently managed by
+<cite target-id="rutgers"><cite-title>Rutgers,</cite-title></cite> (2)
+The State University of New Jersey, the San Diego Supercomputer Center at the University of California, San Diego, and 
+the Center for Advanced Research in Biotechnology/UMBI/NIST, and it stores over 29,000 structures. 
+The European Bioinformatics Institute Macromolecular Structure Database group (UK) and the Protein Research Institute at Osaka University, Japan are international contributors to the contents of the PDB.
+
+    </para> 
+    <para id="para2">
+	The name Protein Data Bank is historical in origin, because the present-day PDB includes many DNA and RNA structures as well. The most important information contained in any given PDB file is a set of 3-dimensional vectors representing the atomic coordinates for each of the individual atoms that comprise the biological molecule(s) included in the structure.  These coordinates can be fed into various graphics programs that allow the scientist to view the a 3-dimensional model of molecule.  An example of one of these models is the molecule of the month that can be viewed by clicking on the link in the left-hand blue border of the <link url="http://www.rcsb.org/pdb/">PDB home page</link>.  
+
+    </para>
+
+ <exercise id="ex1">
+    	<problem id="idp961616">
+   	  <para id="prob1">
+   	  What is the featured molecule of the month today? 
+    	  </para>
+     	</problem>
+ </exercise>    
+
+    <para id="para3">
+	The PDB search engine asks the user to "Enter a PDB ID or keyword".  The PDB ID, which is also referred to in journal articles as the PDB accession code, is a 4 character alphanumberic ID code assigned to the structure coordinate file when it is deposited into the PDB by the experimentalist who solved the structure.  For instance, the PDB ID for a 2.2 angstrom crystal structure of the protein calmodulin is 3CLN.  Perform a search using 3CLN as the query.  The result is a summary page that lists the method of structure determination, as well as the authors of the structure.  
+It is not uncommon for the authors of the primary citation to differ somewhat from the authors of the structure, as the first refers to the writer(s) of the article where the new structure first appeared and the second refers to the experimentalist(s) who determined the structure of the deposited molecule(s). The compound field identifies the common name of the protein or nucleic acid molecule in the structure, and the source identifies the genus and species of the organism from which this molecule is derived, which in this case is a rat.  At the bottom of the summary, is a table entitled HET groups.  HET (heteroatom) refers to any atom that is not part of the biological molecule(s) in the structure.  
+These are often ligands, which are molecules that commonly bind the particular protein or nucleic acid in the structure.  In this case, there is calcium in the structure, which may not be surprising, given that the classification listed for this protein in the summary is "Calcium Binding Protein".  The formula column of this table gives the chemical formula of the ligand.
+</para>
+
+ <exercise id="ex2">
+    	<problem id="idp895216">
+   	  <para id="prob2">
+   	  How many calcium ions are in this structure?  
+    	  </para>
+     	</problem>
+ </exercise>
+ <exercise id="ex3">
+    	<problem id="idm6776032">
+   	  <para id="prob3">
+   	  What is the date this entry was deposited to the PDB? 
+    	  </para>
+     	</problem>
+ </exercise>  
+
+    <para id="para4">
+	Scroll back up to the top of the summary page.  In the blue border on the left of the page click the link entitled "View Structure".  Most of the interactive 3D displays require downloading and installing software.  For those who do not wish to do this, view the high (500 X 500) resolution ribbons image under "Still Images".  This is a ribbons "backbone" model of a protein, that includes the calcium ions, but does not show the sidechains of the individual amino acids.  Compare the ribbons model with the cylinders model, wherein all the helices are shown as cylinders.  These images are both made with the same atomic coordinates from the 3CLN file, but the coordinates can be modeled in many different ways, depending on what properties the image renderer wants to illustrate.
+</para>
+ <para id="para5">
+Now, select the "Download/Display File" option listed in the blue border on the left.  For those files that need to be downloaded for making images, usually the text file format is preferred because many of the graphics programs will not accept the html format file.  In the table shown under the "Display the Structure File" option, choose the PDB text file format, complete with coordinates.  Now, take a look at the contents of the files. 
+</para> 
+
+ <exercise id="ex4">
+    	<problem id="idm6865504">
+   	  <para id="prob4">
+   	  What was the experimental method for determining the structure of calmodulin in the entry 3CLN?
+    	  </para>
+     	</problem>
+ </exercise>  
+ 
+<para id="para5a">
+The first column of the PDB file contains an identifier for the type of information contained on that line.
+For example, JRNL, is the identifier for all lines containing the literary citation(s) for the journal(s) where the structure was published.  The first section of the PDB file is the Title Section, which begins with a line containing the identifier HEADER and continues until the end of the lines containing the identifier REMARK.  This section includes information about the experimental method used to obtain the atomic coordinates present in the file.  The 3CLN structure is an older entry into the PDB, and does not contain a great deal of information about experimental methods and statistics, however newer entries to the PDB are required to have more information. Scroll down until you see the ATOM identifier in the first column.  This is the beginning of the atomic coordinates listing and this section of the file should look something like the figure illustrated below.
+</para>
+<figure id="pdbfile">
+   <title>PDB COORDINATE FILE FORMAT</title>
+   <media id="idp398624" alt=""><image src="../../media/pdb.jpg" mime-type="image/jpeg"/></media>
+   <caption>  Each separate column in a given section of a PDB file is designated as a different "field".  The format of the coordinate section of the PDB file is illustrated above.
+   </caption>  
+</figure>
+<para id="para6">
+	The 5th column of this file lists the residue number.  Notice that in the 3CLN file the first residue number is 5.  This is mentioned in the REMARKS section at the beginning of the file, as it should be. 
+</para> 
+
+ <exercise id="ex5">
+    	<problem id="idm6791456">
+   	  <para id="prob5">
+   	  What explanation is given for the missing amino acid residues?
+    	  </para>
+     	</problem>
+ </exercise>
+ 
+    <para id="para7">
+ 	The PDB offers a syntax directory to help interpret the lines and columns in each section of a PDB file.  Scroll back to the top of this page and click on the PDB icon in the upper left hand corner to return to the PDB home page.  Locate the link entitled "FILE FORMATS".  
+Under PDB File Format, select the most current version of the File Format Contents Guide.  Scroll through the Table of Contents listed on the left side of the page.  Beginning with the Title Section, links are provided for every possible type of line identifier that can be found within a PDB file.  Under the Coordinate Section, click on the link for the line identifier ATOM to call up the Record Format listing for the atomic coordinates section.  
+Each possible field in an item line is listed according to the character column numbers assigned to the field.  Not every available field will always be used in a file.  For instance, in the Record Format listing, the residue sequence number is listed in the 7th possible field, but the 3CLN file only uses 5 of the first 7 fields and so the residue number is the 5th column.  This is because the fields altLoc and chainID are not required in the 3CLN file.
+</para> 
+    <para id="para8">
+	It is common to have more than one structure present in the PDB for a medically or scientifically important protein or nucleic acid, particularly if the structures represent genetically engineered mutants of the same biological molecule, similar molecules from different organisms, or the same molecule bound to different ligands.  Return to the PDB home page (the PDB home page icon is always in the upper left hand corner).  Enter the accession code 1CFC as a query to the PDB.  
+</para> 
+
+ <exercise id="ex6">
+    	<problem id="idp2643328">
+   	  <para id="prob6">
+   	  What biological molecule is represented by this entry?
+    	  </para>
+     	</problem>
+ </exercise>
+  <exercise id="ex7">
+    	<problem id="idm6323472">
+   	  <para id="prob7">
+   	  View the summary page for this structure.  What was the experimental method used to determine this structure?
+    	  </para>
+     	</problem>
+ </exercise>
+ <exercise id="ex8">
+    	<problem id="idm7307248">
+   	  <para id="prob8">
+   	  Are any ligands bound to this molecule?   
+    	  </para>
+     	</problem>
+ </exercise>   
+
+    <para id="para8a">
+Notice that 25 coordinate sets, representing slightly different molecular conformations, are present.  This is characteristic of solution studies, where the molecule is dynamic.  Use the "View Structure" link to view the ribbons image of a superposition of the 25 models.  The parts of the molecule that overlap well between the models are areas that maintain a relatively rigid structure even in solution, while the parts of the molecule that do not overlap well are dynamic in solution.  Use the "Download/Display File" link to display the PDB text file, header only, no coordinates. 
+</para> 
+
+ <exercise id="ex9">
+    	<problem id="idm5947744">
+   	  <para id="prob9">
+   	  Why, in this case, might it be undesirable to display the file complete with coordinates?  (If uncertain, choose the "complete with coordinates" option and look through the coordinate file to find out.)
+    	  </para>
+     	</problem>
+ </exercise>
+ 
+
+    <para id="para8b">
+Before closing this file, view the experimental methods discussed in the Title Section to see how they differ from the 3CLN entry.
+</para> 
+    <para id="para9">
+	Return to the PDB home page and search by keyword calmodulin.
+</para> 
+
+  <exercise id="ex10">
+    	<problem id="idm7107088">
+   	  <para id="prob10">
+   	 How many structures are found in response to the query?
+    	  </para>
+     	</problem>
+ </exercise>
+ <exercise id="ex11">
+    	<problem id="idp2632624">
+   	  <para id="prob11">
+   	 Are all of the matches returned structures of calmodulin?  
+    	  </para>
+     	</problem>
+ </exercise>   
+<exercise id="ex12">
+    	<problem id="idp2745504">
+   	  <para id="prob12">
+   	 Explain the answer to problem 11 in terms of the way the search engine responds to the keyword "calmodulin" that was used as a query.  
+    	  </para>
+     	</problem>
+ </exercise> 
+
+    <para id="para9a">  
+  If the query results at the top of the page state that there are structures being processed or "on hold", these listings can be accessed by clicking on the link entitled "matching your query".  The Processing/Hold database contains structures that are soon-to-be released.  The NIH has a strict release policy, requiring that any structures derived through experiments supported by NIH grants be deposited at the time of submission of a research article to a journal, and although a hold may be placed on these coordinates during the submission process, the rules state that the coordinates are to be released upon publication.    
+</para> 
+ 
+  </content>
+  
+    <bib:file>
+      <bib:entry id="bnl">
+       <bib:article>
+    	<bib:author>F.C.Bernstein, T.F.Koetzle, G.J.B.Williams, E.F.Meyer Jr, 		M.D.Brice,J.R.Rodgers, O.Kennard, T.Shimanouchi, M.Tasumi </bib:author>
+    	<bib:title> The Protein Data Bank: a computer-based archival file 		for macromolecular structures. </bib:title>
+    	<bib:journal> J. Mol. Biol. </bib:journal>
+            <bib:year>1977 </bib:year>
+            <bib:volume>112</bib:volume>
+           <bib:pages>535-542 </bib:pages>
+          </bib:article>
+      </bib:entry>
+       <bib:entry id="rutgers">
+       <bib:article>
+    	<bib:author>H.M.Berman, J.Westbrook, Z.Feng, G.Gilliland, T.N.Bhat, 		H.Weissig, I.N.Shindyalov, P.E.Bourne </bib:author>
+    	<bib:title> The Protein Data Bank. </bib:title>
+    	<bib:journal> Nucleic Acids Research </bib:journal>
+            <bib:year> 2000 </bib:year>
+            <bib:volume>28</bib:volume>
+           <bib:pages> 235-242 </bib:pages>
+          </bib:article>
+      </bib:entry>
+    </bib:file>
+
+</document>

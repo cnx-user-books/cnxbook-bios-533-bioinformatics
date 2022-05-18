@@ -1,0 +1,346 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+  <title>Introduction to Sequence Alignment</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>61d7ea05-1d99-48c8-8632-ade6fb348732</md:uuid>
+</metadata>
+
+
+
+  <content>
+    <para id="intro">
+  Proteins that have a significant biological relationship to one another often share only isolated regions of sequence similarity.  For identifying relationships of this nature, the ability to find local regions of optimal similarity is advantageous over global alignments that optimize the overall alignment of two entire sequences. 
+<cite target-id="blast"><cite-title>BLAST</cite-title></cite>,
+ or Basic Local Alignment Search Tool (1), is an alignment tool that  
+uses a measure of local similarity to score sequence alignments in such a way as to identify regions of good local alignment.
+    </para>  
+    <para id="para1">
+The basic BLAST algorithm can be implemented in DNA and protein sequence database searches, motif searches, gene identification searches, and in the analysis of multiple regions of similarity in long DNA sequences.  There are 5 BLAST options on the NCBI web site.  BLASTP compares any amino acid query sequence against a protein sequence database.  Similarly, BLASTN compares a nucleotide sequence against a nucleotide sequence database.  BLASTX takes a nucleotide query sequence and translates it in all reading frames for comparison against a protein sequence database.  TBLASTN compares a protein sequence against a nucleotide sequence database, translating the nucleotide database sequences in all possible reading frames.  TBLASTX compares translations of a nucleotide query sequence against translations of a nucleotide sequence database.  Sequences must be input in one of three formats; FASTA sequence format, NCBI Accession numbers, or GIs (GenBank Identifiers).  The FASTA format is the only format where you can input a sequence, instead of a number or code identifying a gene that has already been deposited in GenBank, so this is the format that must be used for nonpublished sequences.  Take a moment to view the   
+<link url="http://www.ncbi.nlm.nih.gov/BLAST/fasta.html">FASTA format description</link>.
+    </para> 
+    <para id="para2">
+Consider the following nucleotide sequence, which is in FASTA format, but lacks 
+the single-line description that identifies it source:
+    </para>
+    <para id="space1">
+    </para>
+<code display="block" id="idp1232736">
+TCAAGCAGATCACTGTCCTTCTGCCATGGCCCTGT
+GGATGCGCCTCCTGCCCCTGCTGGCGCTGCTGGCC
+CTCTGGGGACCTGACCCAGCCGCAGCCTTTGTGAA
+CCAACACCTGTGCGGCTCACACCTGGTGGAAGCTC
+TCTACCTAGTGTGCGGGGAACGAGGCTTCTTCTAC
+ACACCCAAGACCCGCCGGGAGGCAGAGGACCTGCA
+GGTGGGGCAGGTGGAGCTGGGCGGGGGCCCTGGTG
+CAGGCAGCCTGCAGCCCTTGGCCCTGGAGGGGTCC
+CTGCAGAAGCGTGGCATTGTGGAACAATGCTGTAC
+CAGCATCTGCTCCCTCTACCAGCTGGAGAACTACT
+GCAACTAGACGCAGCCCGCATGCAGNCCCCCACCC
+GCCGNCTTCTGCACCGAGAGAGATGGAATTAAACC
+CTTGAACCCAGCANANAAAAAAAAGAAATAAAA
+</code>
+    <para id="space2">
+    </para>
+    <para id="para4">Access the <link url="http://www.ncbi.nlm.nih.gov/BLAST/">NCBI BLAST home page
+</link>, and click on the link 
+for nucleotide BLAST (BLASTN), the standard BLAST for searching a nucleotide database with a 
+nucleotide query sequence.  Highlight and copy the FASTA sequence above, and paste it 
+into the first box on the BLAST query page.  
+BLAST allows the option of querying over only a subset of the query sequence, 
+identified by numerical order in the "query subrange" boxes next to the query.  If it were desirable to query with only the subsequence beginning 
+with the 50th nucleotide of the example sequence and ending with the 250th 
+nucleotide, then the number 50 would be entered into the "From" box and 250 
+would be entered into the "To" box.  Here in this example the entire sequence 
+should be used as the query, so these boxes should be left blank. 
+The database can be selected under "Choose Search Set". There are many available database choices you can view from the pull down menu. The "nr/nt" database is the largest nucleotide database available through NCBI BLAST; select the "nr/nt" database for this exercise.  It includes all GenBank, RefSeq Nucleotides, EMBL (European nucleotide database), DDBJ (Japanese nucleotide database) and PDB (Protein Data Bank) sequences, but no EST, STS, GSS, or phase 0, 1 or 2 htgs (unfinished high throughput genomic) sequences.    The NCBI nr database originally got its name from the phrase "nonredundant" nucleotide database, but there is no longer any claim to nonredundancy in the sequence set.  Choosing the largest database is not always best; 
+in fact, often the 
+goal is to find a match from a specific organism, for example, a lab that works with flies (<foreign>
+ "Drosophila melanogaster" </foreign>) as the model organism might be only interested in their organism's sequences. 
+In that case, there is a box entitled Organism, where a user interested can type in <foreign>
+ "Drosophila melanogaster" </foreign>.
+   </para>
+    <para id="para5">Under program selection, the user can choose to optimize blastn for the type of sequence search that best relates to their problem, for highly similar sequences (megablast), more dissimilar sequences (discontiguous megablast)or somewhat similar sequences (blastn).  At the bottom of the web page, there is a link that allows the user to view the default values for formatting 
+(return the descriptions for the top 100 scoring alignments) and for the algorithm parameters.  If you selected megablast, optimize for highly similar sequences, the word size used in the search will automatically default to 28 nucleotides.  If you select blastn to optimize for somewhat similar sequences the word size will be 11 nucleotides, the historically common default value for blastn.
+For the purposes of this example, select to optimize for somewhat similar sequences (blastn) and click on the BLAST button to submit your query to 
+the BLAST queue.
+
+BLAST should state that the query was successfully submitted, and provide a 
+request ID that accesses the results. The page updates itself 
+automatically, you do not have to refresh it. 
+    </para>
+    <para id="para6"> 
+The results begin with a graphical overview that uses the query sequence as the 
+rule, shown separately at the top of the graph.  In this example, the rule 
+(our query sequence) is 453 nucleotides in length.  The score of each alignment 
+is divided into one of 5 ranges by the five different colors in the color key 
+provided, and the alignments are placed in the order of best scores first.  The 
+scores are normalized, and normalized scores are given in units  of bits, to 
+allow comparisons between alignments.  More information on scores can and 
+should be perused in the <link url="http://www.ncbi.nlm.nih.gov/BLAST/tutorial/Altschul-1.html">Altschul tutorial</link> 
+on the NCBI website.  Clicking on any of the first 50 lines in the graph takes 
+the user to the associated alignment, located in the last section of this results
+page.
+
+</para>
+<exercise id="ex1">
+ 	<problem id="idm2423136">
+ 	  <para id="prob1">
+ 	  Look at the graph of best results at the top of the page.
+     How long is the alignment length for the best match in the graph? 
+ 	  </para>
+ 	</problem>
+</exercise>
+<para id="para6a">The second section of the results page, immediately following the graph, contains 
+the top 100 alignment scores and their sequence descriptions.  Here, the "hits", or matched sequences returned as a list of results, contain links to their GenBank entries, their GenBank definitions under the column entitled "Accession", the normalized scores of 
+the alignments, and the E-values. The E-values 
+quantify the probability that the listed alignment might occur randomly. The scores are linked to the actual alignment further down the page.  Clicking on a score will take you directly to the alignment that obtained that score. 
+In some cases, there are icons containing capital letters in the links column, which are links to related entries in one of the NCBI databases, such as <link url="http://www.ncbi.nlm.nih.gov/UniGene/">  
+UniGene unique gene cluster information</link>, <link url="http://www.ncbi.nlm.nih.gov/sites/entrez?db=gene"> Entrez Gene </link> and <link url="http://www.ncbi.nlm.nih.gov/geo/">GEO
+gene expression and hybridization array data </link>.  Look at the first 5 "hits" in the results list.  
+</para>
+
+<exercise id="ex2">
+ 	<problem id="idm5561328">
+ 	  <para id="prob2">
+ 	  What organism is the most common source of the sequences in the first 5 hits?
+ 	  </para>
+ 	</problem>
+</exercise>
+  
+<exercise id="ex3">
+ 	<problem id="idm6412112">
+ 	  <para id="prob3">
+ 	  What protein is most commonly identified in the description column 
+          of the alignments as being associated with or related to these sequences? 
+ 	  </para>
+ 	</problem>
+</exercise>
+  
+    <para id="para7">
+The third section of the results page contains the actual alignments, listed in 
+the same order as the graphed results and the scores. 
+     </para>
+
+<exercise id="ex4">
+ 	<problem id="idm6228512">
+ 	  <para id="prob4">
+ 	In the first alignment, what is the ratio of identical bases to 
+      total bases in the aligned subsequence? 
+ 
+ 	  </para>
+ 	</problem>
+</exercise>
+  
+<exercise id="ex5">
+ 	<problem id="idm12375232">
+ 	  <para id="prob5">
+ 	  What is the listed percent identity?
+
+ 	  </para>
+ 	</problem>
+</exercise>
+  
+<exercise id="ex6">
+ 	<problem id="idm4721712">
+ 	  <para id="prob6">
+ 	  What is the score? 
+ 
+ 	  </para>
+ 	</problem>
+</exercise> 
+
+<exercise id="ex7">
+ 	<problem id="idp6394624">
+ 	  <para id="prob7">
+ 	  What is the E- (Expect) value?
+ 
+ 	  </para>
+ 	</problem>
+</exercise> 
+
+
+<para id="para7a">Look for entry with the accession code BC005255.1 at the 
+beginning of the alignment and click on the accession link.  Note that this "hit" is a cDNA, or a DNA sequence that has been copied from an 
+mRNA molecule by the enzyme reverse transcriptase.  This is indicated in the 
+description, but whenever the source of the sequence 
+is unclear, click the link for the GI number and view the GenBank entry for 
+more information.    Look under the "COMMENT" section for 
+additional details about this sequence.
+</para>
+
+<exercise id="ex8">
+ 	<problem id="idm12737312">
+ 	  <para id="prob8">
+ 	  What group was responsible for the DNA sequencing for this entry? 
+ 	  </para>
+ 	</problem>
+</exercise> 
+
+
+<para id="para7b">Return to the BLAST alignment results page.  Scroll down to view the actual sequence alignments.
+  The alignments are represented with vertical lines illustrating identical 
+matches, blanks indicate no match.  In these nucleotide alignments, there is 
+no measurement for similarity between non-identical nucleotides.   In protein alignments, however, chemical or structural similarity is 
+usually identified between the amino acids.
+    </para>
+    <para id="para8">
+Return to the <link url="http://www.ncbi.nlm.nih.gov/BLAST/">BLAST home page</link>, 
+and select the blastx "translated nucleotide sequence query".  Cut and paste the same nucleotide sequence used in the 
+previous example into the "Search" box.  The default translation tool is BLASTX, which translates the query sequence into a protein sequence and searches 
+a protein database.  To search a translated 
+nucleotide database with a protein query,  the TBLASTN algorithm should be selected.  To search a translated nucleotide database 
+with a translated nucleotide sequence, the choice would be TBLASTX.  TBLASTX 
+is the most computationally intensive of these three searches, therefore 
+common practice is to use BLASTX first to search protein sequence databases, and then if there are no hits with 
+BLASTX, consider TBLASTX to translate nucleotide sequence database entries into protein sequences.  For this example, use the translation algorithm BLASTX.
+Use the nr database and leave the default values for all other BLAST options, and hit BLAST.  
+View the results page.
+</para>
+
+<exercise id="ex9">
+ 	<problem id="idp640912">
+ 	  <para id="prob9">
+ 	   What protein is listed in the vast majority of the returned matches? 
+ 	  </para>
+ 	</problem>
+</exercise> 
+
+<para id="para8a">     
+Look at the first alignment, which should have 100% identity 
+between the aligned subsequences.  Note that a particular alignment may have more than one sequence associated with it.  Therefore, you must look at the actual alignments, not the list of scores, to answer the following questions.
+</para>
+
+<exercise id="ex10">
+ 	<problem id="idm4121456">
+ 	  <para id="prob10">
+      Why is the score lower for the BLASTX result than for the BLASTN result, 
+      even though the percent identity between aligned subsequences is 100%?  
+ 	  </para>
+ 	</problem>
+</exercise> 
+<exercise id="ex11">
+ 	<problem id="idm13070528">
+ 	  <para id="prob11">
+      How many different species are listed as sources where the aligned 
+      subsequence has an identical amino acid to total amino acid ratio of 
+      86/86, and 100% identity?  
+ 	  </para>
+ 	</problem>
+</exercise>
+
+<para id="para8b">  
+This protein sequence is highly 
+conserved across several species, a trait that is often a sign of physiological 
+importance.  Scroll through the protein alignments.  Notice that alignment 
+between amino acids is illustrated differently than alignment between 
+nucleotides.  An identical match is shown by listing the one letter amino acid 
+code in the middle row, between the two aligned sequences.  A mismatch is 
+indicated by a blank, but similarity is indicated by the "+" sign, meaning the 
+amino acids are not identical, but they have some of the same chemical or structural properties.  Gaps are indicated by hyphens in the sequence that contains the 
+gaps.  Gaps are penalized in an alignment, and cause the normalized score to be lower.  
+    </para>
+    <para id="para9">
+ 
+<cite target-id="blat"><cite-title>BLAT</cite-title></cite>,
+stands for Blast-like alignment tool (2), and is used for 
+sequence comparisons against an 
+entire genome.  Review the difference between BLAT and BLAST at the 
+<link url="http://genome.ucsc.edu/FAQ/FAQblat">BLAT FAQ site</link>.
+ Execute a 
+BLAT search, using the sequence above, from the <link url="http://genome.ucsc.edu/">UCSC Genome Bioinformatics Site</link>.  
+Click on the  link in this web page entitled "BLAT".  
+Search the human genome, leaving the settings at the default values. 
+The search results will first appear in summary form. Identify the sequence our query most closely matches by the highest score.
+</para>
+
+<exercise id="ex12">
+ 	<problem id="idm6544192">
+ 	  <para id="prob12">
+      What human chromosome (number) contains the sequence our query most closely aligns?  
+ 	  </para>
+ 	</problem>
+</exercise> 
+<exercise id="ex13">
+ 	<problem id="idm4674048">
+ 	  <para id="prob13">
+      What percent identity exists between our sequence and the aligned subsequence(s)? 
+ 	  </para>
+ 	</problem>
+</exercise>
+
+<para id="para9a"> 
+Click on the link entitled "details".  First, the query sequence is presented, 
+with matching bases capitalized in blue font.  Bases in cyan mark the beginning and 
+end of aligned subsequences, indicating a gap in either the reference or the query
+sequence. Second, the genomic sequence 
+from the selected chromosome is shown, and blue, capitalized bases illustrate 
+the matching region(s).  Notice that the query cDNA sequence is missing a large 
+region of DNA that is present in the chromosome.  The pairwise alignment is 
+shown below the genomic sequence.  Return to the original results summary and 
+click on the link entitled "browser".  The missing region is illustrated in 
+graphical form here, where the chromosome band is shown in grey, extending 
+across the graph and the query sequence, labeled at the left as "YourSeq", 
+is in black, below the STS Markers.  
+In fact, the examples in this module use an EST, or an 
+expressed-sequence tag, for the query sequence. ESTs are mRNA-derived 
+representations of the genes expressed in a given tissue and/or at a given 
+developmental stage.  
+</para>
+
+<exercise id="ex14">
+ 	<problem id="idm3727152">
+ 	  <para id="prob14">
+      Knowing that our sequence is an EST, how could this explain the region of 
+      DNA that appears in the genomic sequence, but not in our query sequence? 
+ 	  </para>
+ 	</problem>
+</exercise> 
+
+<para id="para9b"> 
+If the answer to this question is not intuitive, read the 
+<link url="http://www.ncbi.nlm.nih.gov/About/primer/est.html">EST section</link> 
+of the NCBI primer. Scroll down to the section entitled "Genes and Gene Prediction Tracks" and change the display options under Ensembl to "pack" and the setting under GenScan to "pack".  Next, scroll to the bottom of the page and hit the refresh button. (For a description of the different display options for annotation tracks, read the <link url="http://genome.ucsc.edu/goldenPath/help/hgTracksHelp.html#IndivTracks"> User Guide</link>. The GenScan predicted genes for this area of the chromosome 
+are shown in brown, while the Ensembl gene predictions are in maroon.
+</para>
+<exercise id="ex15">
+ 	<problem id="idm12518032">
+ 	  <para id="prob15">
+      How does our sequence line up with the predicted genes? 
+ 	  </para>
+ 	</problem>
+</exercise>
+<exercise id="ex16">
+ 	<problem id="idp5113088">
+ 	  <para id="prob16">
+      Now, design an independent search in order to answer the following 
+      question.  What is the GI number and definition for the EST that aligns most closely with our query sequence, according to BLAST?
+ 	  </para>
+ 	</problem>
+</exercise>
+
+    <para id="conclusion">
+This has been an introduction to BLAST sequence alignment, designed to give an 
+idea of some of the different ways to optimize searches and problems that require the use 
+of sequence alignment tools. Subsequent modules in this course will build on this 
+foundation, exploring advanced techniques and additional alignment tools. 
+    </para> 
+  </content>
+  <bib:file>
+   <bib:entry id="blast">
+      <bib:article>
+	<bib:author>Altschul S.F., Gish W., Miller W., Myers E.W., Lipman D.J.</bib:author>
+ 	<bib:title>Basic local alignment search tool</bib:title> 
+	<bib:journal>J. Mol. Biol. </bib:journal>
+        <bib:year>1990</bib:year>
+        <bib:pages> 215:403-410</bib:pages>
+      </bib:article>
+   </bib:entry>
+   <bib:entry id="blat">
+      <bib:article>
+        <bib:author>Kent, WJ.	</bib:author>
+ 	<bib:title>BLAT--the BLAST-like alignment tool</bib:title>  
+        <bib:journal>Genome Res. </bib:journal>
+        <bib:year>2002</bib:year>
+        <bib:pages>12(4):656-64</bib:pages>
+      </bib:article>  
+   </bib:entry>
+ </bib:file>   
+</document>

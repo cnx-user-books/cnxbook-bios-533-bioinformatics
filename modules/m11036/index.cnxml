@@ -1,0 +1,357 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+	<title>Multiple Sequence Alignment</title>
+	<metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>d3c4c74f-76c1-42e9-a7ec-ed6b083fa91b</md:uuid>
+</metadata>
+	<content>
+		<para id="intro">
+Sequence alignments can be used to study the relationship(s) between sequences in sets of more than two sequences.  This application is particularly useful when studying the relationships between a similar type of gene product that is expressed by different organisms, like analyzing CFTR sequences from several different species, or when studying similar, yet divergent, sequences within the same organism, as the variance in troponin I isoforms in Homo sapiens.
+    </para>
+		<para id="para1">
+Often, a primary focus of a multiple sequence alignment is to identify, within 
+several related sequences, regions that are highly conserved in identity or 
+similarity, and therefore probably have functional and/or structural 
+significance.  Many factors affect the analysis of conserved regions within 
+related sequences, such as the number of sequences included in the analysis, 
+and the ratio of the number of very similar (almost identical) sequences to the 
+number of more distantly related sequences.  Divergent sequences can cause 
+problems in a multiple sequence alignment. It is more difficult to identify 
+the correct alignment when two sequences that are related throughout part of 
+the sequence also contain large sections that diverge.  Therefore, the error 
+rates in the alignment increase as divergence increases.  These errors in the 
+alignment can cause the related part of the sequences to show lower similarity 
+than they actually have, and this sort of error is often amplified in 
+subsequent steps. 
+<cite target-id="clustalw"><cite-title>ClustalW</cite-title></cite> (1),
+a commonly used multiple sequence alignment program, addresses the problems 
+associated with alignment of divergent sequences in several ways.  Individual 
+weights are assigned to each sequence in a partial alignment such that 
+near-duplicate sequences are down-weighted and   divergent sequences are 
+up-weighted. Also, the amino acid substitution matrices at different alignment 
+stages are chosen according to the divergence of the sequences to be aligned. 
+Residue-specific gap penalties and locally reduced gap penalties in hydrophilic 
+regions increase the penalty for opening new gaps in regions of regular 
+secondary structure.  Therefore, it increases the likelihood that gaps will 
+occur in loop regions than in highly structured regions such as alpha helices 
+and beta sheets.  Highly structured regions are commonly very important to the 
+fold and function of a protein, and so divergence is often biologically less 
+likely in these areas.  For similar reasons, existing gaps receive locally 
+reduced gap penalties to encourage the opening up of new gaps near the existing 
+ones. These features have been designed into ClustalW to produce multiple 
+sequence alignments that are biologically meaningful.
+    </para>
+		<para id="para2">First, use the example of analyzing the variance in troponin I isoforms in 
+Homo sapiens to get acquainted with multiple sequence alignments with ClustalW. 
+ <link url="http://www.ebi.ac.uk/clustalw/">ClustalW</link> is available at 
+many bioinformatics web sites, but the EBI site is chosen here, for its nice 
+interface and graphical display.  Accept the default values on the submission 
+form, and  
+scroll down the page until  the box for pasting in the sequences to be aligned 
+appears.  Now, the troponin I sequences must be obtained.  For the sake of time, instead of searching with the string "troponin I human", 
+the pertinent accession codes are supplied for this exercise.  Open a new browser 
+window to the  <link url="http://www.ncbi.nlm.nih.gov/">NCBI home page</link>.  
+Locate the "Search" box at the top of the page and select 
+"Protein" to search the protein database.    
+Type in the accession code 
+TNNI3_HUMAN in the box to the right, and click on "Go". The results of this search will 
+become part of the search history.  Select the history link from the menu
+under the query box to verify this.  Now, search "Protein" again, using the
+accession code TNNI2_HUMAN, then perform one last search using the accession code 
+TNNI1_HUMAN.  As an illustration of the search history function in Entrez, combine the
+results of these three searches.  Do this using the boolean operator "OR" in 
+between the number assigned to each search in the history listing.  For instance,
+if the Search History gave the following list,
+<code display="block" id="idm819728">
+#3 Search TNNI1_HUMAN 	17:44:55 	
+#2 Search TNNI2_HUMAN 	17:44:49 	
+#1 Search TNNI3_HUMAN 	17:41:47 	</code>
+then "#1 OR #2 OR #3" would be the search string.    
+The boolean operator
+OR is specifying that all results included in any of the above searches be combined.
+Using the boolean AND operator would specify only results that are common to 
+all three searches, which in this case would yield zero results.  To view the results, click 
+on "GO" once you have entered the search string into the query box.
+Now, the combined search should return all three of the desired troponin I isoforms.
+Check the box to the left of each accession code for all three results.   
+Just above the list of results, find the region on the left that states 
+"Display Summary" and change "Summary" to "FASTA".  This should yield the amino acid sequences in FASTA format for the 
+3 proteins that were selected.  Copy and paste each sequence into the ClustalW 
+window, pressing return after pasting each entry.  There does not have to be a 
+line space between entries, as long as the FASTA identifying line starts on a 
+new line.  However, it does not hurt to have a line space between entries, 
+either.  Note that the numbered search description line from Entrez
+is not part of the FASTA format.  The numbered search description line will look 
+something like this,
+<code display="block" id="idm6997152">
+1:  P19237. Reports  Troponin I, slow ...[gi:1351298]
+</code>
+and should be omitted from the ClustalW search query.  Also, check that the 
+description header for the sequence
+in FASTA format does not take up more than one line.  If it does, shorten the 
+description so that it only occupies one line.
+ Press the "Run" button, and click on the link for the browser window 
+that displays the results, if this option is given.  A text page will appear 
+with the alignment scores.
+    </para>
+		<exercise id="ex1">
+			<problem id="idp2618064">
+				<para id="prob1">
+ 	  What is the score for the alignment of TNNI3 to TNNI2?
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex2">
+			<problem id="idm7441520">
+				<para id="prob2">
+ 	  What is the score for the alignment of TNNI3 to TNNI1?
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex3">
+			<problem id="idm8246240">
+				<para id="prob3">
+ 	  What is the score for the alignment of TNNI2 to TNNI1?
+ 	  </para>
+			</problem>
+		</exercise>
+		<para id="para3">At the top of the page, a table contains several choices.  
+There a link to the home page for the alignment editor Jalview,there is a button, labeled "Start Jalview", 
+which is a link to the multiple sequence alignment results in the graphical 
+format produced by the Jalview editor.  Choose the "Start Jalview" button  
+to view the alignment results.  The sequences are labeled at the left and a bar 
+graph below the sequences indicates which regions have high conservation or similarity.  The cardiac isoform of troponin 
+I is roughly 30 amino acids longer than the other two isoforms. 
+</para>
+		<exercise id="ex4">
+			<problem id="idp644256">
+				<para id="prob4">
+ 	  Looking at the aligned sequences, 
+      in what region are the extra amino acids located in cardiac troponin I?
+ 	  </para>
+			</problem>
+		</exercise>
+		<para id="para3a">
+Take a look at the color scheme of the alignment.  Regions of the sequence with 
+identical amino acids are colored the same, but notice that regions of the 
+sequence with similar amino acids have also been colored alike.  
+Usually these color schemes have groups consisting of hydrophobic amino acids, 
+hydrophilic amino acids, positively-charged amino acids, and negatively-charged 
+amino acids.  Sometimes these large color groups are divided further to 
+distinguish between sidechain lengths, the aromatic sidechains, glycines 
+and prolines.  
+    </para>
+		<para id="para4a">
+Try one more multiple sequence alignment, analyzing CFTR sequences from several 
+different species.  Return to the <link url="http://www.ebi.ac.uk/clustalw/">
+ClustalW</link> submission page.  Cut and paste the CFTR sequences listed below 
+from three species into the query submission box and run the multiple alignment.
+   </para>
+		<code display="block" id="idm8197040">
+&gt;gi|203423|gb|AAA40918.1| cftr [Rattus norvegicus]
+IKHSGRVSFSSQISWIMPGTIKENIIFGVSYDEYRYKSVVKACQLQEDITKFAEQDNTVLGEGGVTLSGG
+QRARISLARAVYKDADLYLLDSPFGYLDVLTEEQIFESCVCKLMASKTRILVTSKMEQLKKADKILILHE
+GSSYFYGTFSELQSLRPDFSSKLMGYDTFDQFTEERRSSILTETLRRFSVDDASTTWNKAKQSFRQTGEF
+GEKRKNSILSSFSSVKKISIVQKTPLSIEGESDDLQERRLSLVPDSEHGEAALPRSNMITAGPTFPGRRR
+QSVLDLMTFTPSSVSSSLQRTRASIRKISLAPRISLKEEDIYSRRLSQDSTLNITEEINEEDLKECFFDD
+MVKIPTVTTWNTYLRYFTLHRGLFAVLIWCVLVFLVEVAASLFVLWLLKNNPVNGGNNGTKIANTSYVVV
+ITSSSFYYIFYIYVGVADTLLALSLFRGLPLVHTLITASKILHRKMLHSILHAPMSTFNKLKAGGILNRF
+SKDIAILDDFLPLTILT
+&gt;gi|192832|gb|AAA18903.1| cftr[Mus musculus]
+MQKSPLEKASFISKLFFSWTTPILRKGYRHHLELSDIYQAPSADSADHLSEKLEREWDREQASKKNPQLI
+HALRRCFFWRFLFYGILLYLGEVTKAVQPVLLGRIIASYDPENKVERSIAIYLGIGLCLLFIVRTLLLHP
+AIFGLHRIGMQMRTAMFSLIYKKTLKLSSRVLDKISIGQLVSLLSNNLNKFDEGLALAHFIWIAPLQVTL
+LMGLLWDLLQFSAFCGLGLLIILVIFQAILGKMMVKYRDQRAAKINERLVITSEIIDNIYSVKAYCWESA
+MEKMIENLREVELKMTRKAAYMRFFTSSAFFFSGFFVVFLSVLPYTVINGIVLRKIFTTISFCIVLRMSV
+TRQFPTAVQIWYDSFGMIRKIQDFLQKQEYKVLEYNLMTTGIIMENVTAFWEEGFGELLEKVQQSNGDRK
+HSSDENNVSFSHLCLVGNPVLKNINLNIEKGEMLAITGSTGSGKTSLLMLILGELEASEGIIKHSGRVSF
+CSQFSWIMPGTIKENIIFGVSYDEYRYKSVVKACQLQQDITKFAEQDNTVLGEGGVTLSGGQRARISLAR
+AVYKDADLYLLDSPFGYLDVFTEEQVFESCVCKLMANKTRILVTSKMEHLRKADKILILHQGSSYFYGTF
+SELQSLRPDFSSKLMGYDTFDQFTEERRSSILTETLRRFSVDDSSAPWSKPKQSFRQTGEVGEKRKNSIL
+NSFSSVRKISIVQKTPLCIDGESDDLQEKRLSLVPDSEQGEAALPRSNMIATGPTFPGRRRQSVLDLMTF
+TPNSGSSNLQRTRTSIRKISLVPQISLNEVDVYSRRLSQDSTLNITEEINEEDLKECFLDDVIKIPPVTT
+WNTYLRYFTLHKGLLLVLIWCVLVFLVEVAASLFVLWLLKNNPVNSGNNGTKISNSSYVVIITSTSFYYI
+FYIYVGVADTLLALSLFRGLPLVHTLITASKILHRKMLHSILHAPMSTISKLKAGGILNRFSKDIAILDD
+FLPLTIFDFIQLVFIVIGAIIVVSALQPYIFLATVPGLVVFILLRAYFLHTAQQLKQLESEGRSPIFTHL
+VTSLKGLWTLRAFRRQTYFETLFHKALNLHTANWFMYLATLRWFQMRIDMIFVLFFIVVTFISILTTGEG
+EGTAGIILTLAMNIMSTLQWAVNSSIDTDSLMRSVSRVFKFIDIQTEESMYTQIIKELPREGSSDVLVIK
+NEHVKKSDIWPSGGEMVVKDLTVKYMDDGNAVLENISFSISPGQRVGLLGRTGSGKSTLLSAFLRMLNIK
+GDIEIDGVSWNSVTLQEWRKAFGVITQKVFIFSGTFRQNLDPNGKWKDEEIWKVADEVGLKSVIEQFPGQ
+LNFTLVDGGYVLSHGHKQLMCLARSVLSKAKIILLDEPSAHLDPITYQVIRRVLKQAFAGCTVILCEHRI
+EAMLDCQRFLVIEESNVWQYDSLQALLSEKSIFQQAISSSEKMRFFQGRHSSKHKPRTQITALKEETEEE
+VQETRL
+&gt;gi|6862589|gb|AAF30300.1|AAF30300 cftr [Mus musculus]
+MQKSPLEKASFISKLFFSWSTAILRKGYRQHLELSDIYQAPSADSADHLSEKLEREWDREQASKKNPQLI
+HALRRCFFWRFLFYGILLYLGEVTKAVQPVLLGRIIASYDPENKVERSIAIYLGIGLCLLFIVRTLLLHP
+AIFGLHRIGMQMRTAMFSLIYKKTLKLSSRVLDKISIGQLVSLLSNNLNKFDEGLALAHFIWIAPLQVTL
+LMGLLWDLLQFSAFCGLGLLIILVIFQAILGKMMVKYRDQRAAKINERLVITSEIIDNIYSVKAYCWESA
+MEKMIENLREVELKMTRKAAYMRFFTSSAFFFSGFFVVFLSVLPYTVINGIVLRKIFTTISFCIVLRMSV
+TRQFPTAVQIWYDSFGMIRKIQDFLQKQEYKVLEYNLMTTGIIMENVTAFWEEGFGELLEKVQQSNGDRK
+HSSDENNVSFSHLCLVGNPVLKNINLNIEKGEMLAITGSTGSGKTSLLMLILGELEASEGIIKHSGRVSF
+CSQFSWIMPGTIKENIIFGVSYDEYRYKSVVKACQLQQDITKFAEQDNTVLGEGGVTLSGGQRARISLAR
+AVYKDADLYLLDSPFGYLDVFTEEQVFESCVCKLMANKTRILVTSKMEHLRKADKILILHQGSSYFYGTF
+SELQSLRPDFSSKLMGYDTFDQFTEERRSSILTETLRRFSVDDSSAPWSKPKQSFRQTGEVGEKRKNSIL
+NSFSSVRKISIVQKTPLCIDGESDDLQEKRLSLVPDSEQGEAALPRSNMIATGPTFPGRRRQSVLDLMTF
+TPNSGSSNLQRTRTSIRKISLVPQISLNEVDVYSRRLSQDSTLNITEEINEEDLKECFLDDVIKIPPVTT
+WNTYLRYFTLHKGLLLVLIWCVLVFLVEVAASLFVLWLLKNNPVNSGNNGTKISNSSYVVIITSTSFYYI
+FYIYVGVADTLLALSLFRGLPLVHTLITASKILHRKMLHSILHAPMSTISKLKAGGILNRFSKDIAILDD
+FLPLTIFDFIQLVFIVIGAIIVVSALQPYIFLATVPGLVVFILLRAYFLHTAQQLKQLESEGRSPIFTHL
+VTSLKGLWTLRAFRRQTYFETLFHKALNLHTANWFMYLATLRWFQMRIDMIFVLFFIVVTFISILTTGEG
+EGTAGIILTLAMNIMSTLQWAVNSSIDTDSLMRSVSRVFKFIDIQTEESMYTQIIKELPREGSSDVLVIK
+NEHVKKSDIWPSGGEMVVKDLTVKYMDDGNAVLENISFSISPGQRVGLLGRTGSGKSTLLSAFLRMLNIK
+GDIEIDGVSWNSVTLQEWRKAFGVITQKVFIFSGTFRQNLDPNGKWKDEEIWKVADEVGLKSVIEQFPGQ
+LNFTLVDGGYVLSHGHKQLMCLARSVLSKAKIILLDEPSAHLDPITYQVIRRVLKQAFAGCTVILCEHRI
+EAMLDCQRFLVIEESNVWQYDSLQALLSEKSIFQQAISSSEKMRFFQGRHSSKHKPRTQITALKEETEEE
+VQETRL
+&gt;gi|1669377|gb|AAB46340.1| cftr [Homo sapiens]
+LLLIVIGAIAVVAVLQPYIFVATVPVIVAFIMLRAYFLQTSQQLKQLESEGRSPIFTHLVTSLKGLWTLR
+AFGRQPYFETLFHKALNLHTANWFLYLSTLRWFQMRIEMIFVIFFIAVTFISILTTGEGEGRVGIILTLA
+MNIMSTLQWAVNSSIDVDSLMRSVSRVFKFIDMPTEGKPTKSTKPYKNGQLSKVMIIENSHVKKDDIWPS
+GGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDS
+ITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVL
+SHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVI
+EENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL
+&gt;gi|180332|gb|AAA35680.1| cftr [Homo sapiens]
+MQRSPLEKASVVSKLFFSWTRPILRKGYRQRLELSDIYQIPSVDSADNLSEKLEREWDRELASKKNPKLI
+NALRRCFFWRFMFYGIFLYLGEVTKAVQPLLLGRIIASYDPDNKEERSIAIYLGIGLCLLFIVRTLLLHP
+AIFGLHHIGMQMRIAMFSLIYKKTLKLSSRVLDKISIGQLVSLLSNNLNKFDEGLALAHFVWIAPLQVAL
+LMGLIWELLQASAFCGLGFLIVLALFQAGLGRMMMKYRDQRAGKISERLVITSEMIENIQSVKAYCWEEA
+MEKMIENLRQTELKLTRKAAYVRYFNSSAFFFSGFFVVFLSVLPYALIKGIILRKIFTTISFCIVLRMAV
+TRQFPWAVQTWYDSLGAINKIQDFLQKQEYKTLEYNLTTTEVVMENVTAFWEEGFGELFEKAKQNNNNRK
+TSNGDDSLFFSNFSLLGTPVLKDINFKIERGQLLAVAGSTGAGKTSLLMMIMGELEPSEGKIKHSGRISF
+CSQFSWIMPGTIKENIIFGVSYDEYRYRSVIKACQLEEDISKFAEKDNIVLGEGGITLSGGQRARISLAR
+AVYKDADLYLLDSPFGYLDVLTEKEIFESCVCKLMANKTRILVTSKMEHLKKADKILILNEGSSYFYGTF
+SELQNLQPDFSSKLMGCDSFDQFSAERRNSILTETLHRFSLEGDAPVSWTETKKQSFKQTGEFGEKRKNS
+ILNPINSIRKFSIVQKTPLQMNGIEEDSDEPLERRLSLVPDSEQGEAILPRISVISTGPTLQARRRQSVL
+NLMTHSVNQGQNIHRKTTASTRKVSLAPQANLTELDIYSRRLSQETGLEISEEINEEDLKECLFDDMESI
+PAVTTWNTYLRYITVHKSLIFVLIWCLVIFLAEVAASLVVLWLLGNTPLQDKGNSTHSRNNSYAVIITST
+SSYYVFYIYVGVADTLLAMGFFRGLPLVHTLITVSKILHHKMLHSVLQAPMSTLNTLKAGGILNRFSKDI
+AILDDLLPLTIFDFIQLLLIVIGAIAVVAVLQPYIFVATVPVIVAFIMLRAYFLQTSQQLKQLESEGRSP
+IFTHLVTSLKGLWTLRAFGRQPYFETLFHKALNLHTANWFLYLSTLRWFQMRIEMIFVIFFIAVTFISIL
+TTGEGEGRVGIILTLAMNIMSTLQWAVNSSIDVDSLMRSVSRVFKFIDMPTEGKPTKSTKPYKNGQLSKV
+MIIENSHVKKDDIWPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRL
+LNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQ
+FPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILC
+EHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEE
+TEEEVQDTRL
+&gt;gi|1809238|gb|AAB46352.1| cftr [Homo sapiens]
+MQRSPLEKASVVSKLFFSWTRPILRKGYRQRLELSDIYQIPSVDSADNLSEKLEREWDRELASKKNPKLI
+NALRRCFFWRFMFYGIFLYLGEVTKAVQPLLLGRIIASYDPDNKEERSIAIYLGIGLCLLFIVRTLLLHP
+AIFGLHHIGMQMRIAMFSLIYKKTLKLSSRVLDKISIGQLVSLLSNNLNKFDEGLALAHFVWIAPLQVAL
+LMGLIWELLQASAFCGLGFLIVLALFQAGLGRMMMKYRDQRAGKISERLVITSEMIENIQSVKAYCWEEA
+MEKMIENLRQTELKLTRKAAYVRYFNSSAFFFSGFFVVFLSVLPYALIKGIILRKIFTTISFCIVLRMAV
+TRQFPWAVQTWYDSLGAINKIQDFLQKQEYKTLEYNLTTTEVVMENVTAFWEEGFGELFEKAKQNNNNRK
+TSNGDDSLFFSNFSLLGTPVLKDINFKIERGQLLAVAGSTGAGKTSLLMVIMGELEPSEGKIKHSGRISF
+CSQFSWIMPGTIKENIIFGVSYDEYRYRSVIKACQLEEDISKFAEKDNIVLGEGGITLSGGQRARISLAR
+AVYKDADLYLLDSPFGYLDVLTEKEIFESCVCKLMANKTRILVTSKMEHLKKADKILILHEGSSYFYGTF
+SELQNLQPDFSSKLMGCDSFDQFSAERRNSILTETLHRFSLEGDAPVSWTETKKQSFKQTGEFGEKRKNS
+ILNPINSIRKFSIVQKTPLQMNGIEEDSDEPLERRLSLVPDSEQGEAILPRISVISTGPTLQARRRQSVL
+NLMTHSVNQGQNIHRKTTASTRKVSLAPQANLTELDIYSRRLSQETGLEISEEINEEDLKECFFDDMESI
+PAVTTWNTYLRYITVHKSLIFVLIWCLVIFLAEVAASLVVLWLLGNTPLQDKGNSTHSRNNSYAVIITST
+SSYYVFYIYVGVADTLLAMGFFRGLPLVHTLITVSKILHHKMLHSVLQAPMSTLNTLKAGGILNRFSKDI
+AILDDLLPLTIFDFIQ
+	</code>
+		<para id="para4b">
+Before looking at the alignment in Jalview, look at the text results. 
+    </para>
+		<exercise id="ex5">
+			<problem id="idm8403584">
+				<para id="prob5">
+ 	  Which 2 sequences align with the highest pairwise 
+      alignment score?
+ 	  </para>
+			</problem>
+		</exercise>
+		<para id="para4c">Look at the text display of the alignments, shown just below the scores.  
+Try to determine the regions where the 6 sequences align most closely.  
+Many people find this type of text display hard to interpret (a fact that is 
+good to remember when putting together a figure for a presentation or an 
+article).  At the bottom of the text display is a cladogram.  A cladogram is 
+a branched phylogenetic-type tree where the branches are of equal length.  
+Cladograms can show common ancestry, but because the branches have equal 
+lengths, they do not provide an accurate indication of the evolutionary 
+distance between the branches.
+    </para>
+		<exercise id="ex6">
+			<problem id="idm7241600">
+				<para id="prob6">
+ 	  Does the cladogram group together all 
+      the human CFTR sequences in the same branch? 
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex7">
+			<problem id="idp2610864">
+				<para id="prob7">
+ 	  Now, look at the alignment in Jal view.  
+  Is it easier to identify the regions where all 
+      6 sequences align most closely in the Jalview display?
+ 	  </para>
+			</problem>
+		</exercise>
+		<para id="para4d">Leave both of these windows open 
+(closing the ClustalW text results browser page may cause the Jalview editor page 
+to disappear automatically).  Notice the file number assigned this  
+Jalview sequence alignment.  This is to help distinguish it for purposes of comparison from the next 
+and last alignment in this tutorial, where the gap penalty will be manipulated 
+from the default values.  
+</para>
+		<para id="para5a">Finally, repeat the CFTR alignment using the sequences above, but this time 
+change "Gap Open" to 100.  
+(Click on the term "Gap Open" to view the default value.)  This will increase 
+the penalty for opening a gap.  For more information on gaps and gap penalties, 
+view the EBI help page entitled 
+<link url="http://www.ebi.ac.uk/help/gaps_frame.html">"About Gaps"</link>.  
+Compare the group alignment scores from the previous alignment with these group 
+alignment scores.  The group alignment scores can be found in the .output file (listed in the results section) 
+under the section which starts:
+</para><code display="block" id="idp444320">
+	Start of Multiple Alignment
+	There are 5 groups
+	Aligning...
+	</code>
+		<exercise id="ex8">
+			<problem id="idp695920">
+				<para id="prob8">
+ 	 Does changing the gap open penalty affect the group 
+      alignment scores?
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex9">
+			<problem id="idp5960704">
+				<para id="prob9">
+ 	 Are the group scores higher or lower when the penalty 
+      is increased to 100?
+ 	  </para>
+			</problem>
+		</exercise>
+		<para id="para5b">
+ View the Jalview display of the new alignment.  
+Compare the Jalview displays of the first alignment, 
+and the new alignment with the increased gap penalty, 
+in the regions numbered 1220 to 1250.
+    </para>
+		<exercise id="ex10">
+			<problem id="idm81696">
+				<para id="prob10">
+ 	 Describe the differences in the two alignments in 
+this region, both in terms of the gaps, and in terms of the similarity bar 
+graph displayed below the sequences.
+ 	  </para>
+			</problem>
+		</exercise>
+		<para id="conclusion">
+A look at the ClustalW submission page is enough to see that there are many  more parameters that can be manipulated by the user.  However, the default values have been optimized and generally should be left alone, except in cases where the user has a definitive justification for making the change.   It does frequently occur in biology, though, that the user knows some empirical information that conflicts with the results given by an alignment performed with the default values.  In these cases, a scientific argument can be made for altering the parameters to force the alignment to reflect the empirical information.
+    </para>
+	</content>
+	<bib:file>
+		<bib:entry id="clustalw">
+			<bib:article>
+				<bib:author>Thompson J.D., Higgins D.G., Gibson T.J.</bib:author>
+				<bib:title>CLUSTAL W: improving the sensitivity of progressive multiple sequence alignment through sequence weighting, position-specific gap penalties and weight matrix choice</bib:title>
+				<bib:journal>Nucleic Acids Res.</bib:journal>
+				<bib:year>1994</bib:year>
+				<bib:pages>22:4673-4680</bib:pages>
+			</bib:article>
+		</bib:entry>
+	</bib:file>
+</document>

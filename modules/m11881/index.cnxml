@@ -1,0 +1,79 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Bioinformatics Project</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>f9f760a8-0455-4cd2-8c71-32fc7483991d</md:uuid>
+</metadata>
+
+  <content>
+    <para id="intro">
+The bioinformatics project is an opportunity to use the tools taught in previous modules to research an area of personal interest. The student will choose one biological sequence with some presumed functional or structural importance (it can be putative, as long as there is some evidence, preferably published evidence, that supports the putative significance of the sequence).  The sequence can be nucleotide or protein, but it must be at least 140 residues in length. The sequence can represent only one domain of a protein or gene, or a regulatory region, as long as it meets the above requirements for significance and length and the student has sufficiently justified why it is appropriate to extract just one region from the entire protein or gene for the problem or question chosen.  There will be five sections to the project:
+<list id="sections" list-type="enumerated">
+   <item> Define the problem or question.  </item>
+   <item> Materials and Methods.  </item>
+   <item> Multiple sequence alignment figure.  </item>
+   <item> Phylogenetic tree.  </item>
+   <item> Discussion.  </item>
+</list> 
+Examples of the types of problems that are appropriate for this project include:
+<list id="problems">
+   <item> Detection of distantly related (divergent) sequences.  </item>
+   <item> Detection of sequence homologs in various species.  </item>
+   <item> Detection of homologous motifs in proteins of varied function.  </item>
+   <item> Generation of a functional domain profile from a set of sequences.  </item>
+</list>
+    </para>
+    <section id="section1">
+    <title>Section 1.  Define the problem or question.</title>
+    <para id="para1">
+	This section will define the sequence chosen as the starting or master sequence, from which the student will generate other sequences according to the question to be answered.  Discuss the significance of the sequence and justify its selection as the topic for this project.  Be sure it meets all the above-specified requirements.  One well-written paragraph should be able to encompass this section.
+    </para>
+    </section>
+    <section id="section2">
+    <title>Section 2.  Materials and Methods.</title>
+    <para id="para2">
+	Write a complete Materials and Methods section as for a journal article.  Some journal articles may be selected and supplied by the instructor to serve as examples.  Possible subsection titles could include:
+<list id="methods">
+   <item> Databases  </item>
+   <item> Database Search Tools  </item>
+   <item> Multiple Alignment Methods  </item>
+   <item> Generation of Phylogenetic trees  </item>
+</list>
+Most methods subsections can be sufficiently expressed with one paragraph.
+ 
+    </para>
+    </section>
+    <section id="section3">
+    <title>Section 3.  Multiple Sequence Alignment.</title>
+    <para id="para3">
+	The student should choose a question to address that will generate at least 8 related sequences (this can be including the master sequence).  Perform a multiple sequence alignment and generate a multiple sequence alignment figure that pertains to the question or problem of study.  For example, a problem that deals with the detection of homologous motifs in proteins of varied function should be aligned to best illustrate similarity in the chosen motif or domain, which may not necessarily illustrate the best global alignment. Once aligned, sequences may require annotation to highlight specific regions or functional domains. The student may generate the multiple sequence alignment figure by a variety of methods, but the suggested approach is to use the Biology Workbench.  Alignments can be performed under the PROTEIN TOOLS or NUCLEIC TOOLS menus.
+Under the alignment tools menu, options include editing, viewing, displaying (MVIEW) and drawing figures of (TEXSHADE, BOXSHADE) alignments.
+Note the warning under BOXSHADE that when the ruler is chosen for alignment numbering, boxshade can get stuck and never finish. The ruler is a nice addition to the figure, so try changing the font size or page orientation when this happens, as the Workbench recommends.
+    </para>
+    </section>
+    <section id="section4">
+    <title>Section 4.  Phylogenetic tree.</title>
+    <para id="para4">
+	Generate a phylogenetic tree that illustrates the relationships of the sequences in the multiple alignment. The tree can be rooted or unrooted, but should demonstrate the sequence relationships clearly.  Phylogenetic trees can be drawn using DRAWGRAM or DRAWTREE
+under the alignment tools menu. All figures in this project should be entitled, labeled and captioned (see journal articles for examples).
+    </para>
+    </section>
+    <section id="section5">
+    <title>Section 5.  Discussion.</title>
+    <para id="para5">
+	Discuss the information discovered from the sequences generated and how this information addresses the problem or question of study. Be sure that the following questions are answered, if appropriate to the problem:
+ <list id="discussion">
+   <item> How were functional domains determined or assigned?  </item>
+   <item> How were profiles generated or chosen, if used? </item>
+   <item> Did the functional domains line up correctly in the alignments? If not, why not? </item>
+   <item> Did you identify partial matches, or fringe homologs?  </item>
+</list> 
+
+    </para>
+    </section>
+    <para id="conclusion">
+This project challenges the student to use the bioinformatics tools introduced in previous modules for independent study.  The student gains experience in the proper design of a bioinformatics experiment, and in the proper presentation of bioinformatics methods, figures and results.
+
+    </para> 
+  </content>  
+
+  
+</document>

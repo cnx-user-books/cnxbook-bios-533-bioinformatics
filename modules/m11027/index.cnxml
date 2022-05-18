@@ -1,0 +1,215 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+  <title>PipMaker</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>58df6a77-6dfa-404e-a9a2-2f4c3951c8c3</md:uuid>
+</metadata>
+
+
+
+  <content>
+    <para id="intro">
+  A useful graphical tool for viewing sequence alignments, particulary within the genome context, is the percent identity plot, called a pip for short. 
+<cite target-id="pip"><cite-title>PipMaker</cite-title></cite> (1)
+is a web server that will perform a sequence alignment on two long DNA segments 
+and produce a pip in pdf format and email the results to the user.
+Exons of genes and repetitive elements can be labeled along the horizontal axis 
+of the reference DNA sequence, and some coloring options are available for the 
+advanced pip user to clarify and enhance their display. A dot plot is included 
+in the results, illustrating the locations of the query sequence segments in 
+comparison to the reference sequence.
+    </para>  
+    <para id="para1">
+  View the <link url="http://bio.cse.psu.edu/pipmaker/">PipMaker Home Page</link>.  
+Read the introductory information on this page, 
+then click on the link "PipMaker Instructions" 
+and read the section entitled "Overview".
+PipMaker requires that the user submit two sequences, 
+and gives the option of submitting additional information.  
+The reference sequence is submitted first, in FASTA format.  
+This is the sequence that will be depicted along the horizontal axis. 
+The query sequence must be provided second.  
+A mask file containing repeat sequences can be submitted; 
+the user generates this file using the RepeatMasker tool, 
+also provided on this web site.  The repeats in the mask file are indicated 
+in the plot by various kinds of triangles.  Additionally, gene and exon 
+positions can be input by the user, for labeling the locations of exons 
+within their respective genes in the plot.  <link url="http://www.bioinfo.de/isb/2003/03/0021/main.html">
+CpG (cytosine-phosphate-guanine) islands</link> in the first 
+sequence are independently determined by PipMaker and are shown as low boxes 
+at the top of the graphical display. 
+    </para> 
+    <para id="para2">
+Take a look at the example plot shown on the "Instructions" page.
+The vertical axis of the plot is the percent identity, ranging from 50% to 100%.
+Identities below 50% will not be plotted.  The current version of PipMaker 
+compares the first sequence with both the second sequence and its reverse 
+complement, so matching regions need not occur in the same orientations and 
+relative positions in the two sequences.  Read the section entitled "Input to 
+PipMaker" and become acquainted with the format of the different input options. 
+Return to this instruction page later for help interpreting the output that PipMaker produces, if necessary. 
+    </para>
+    <para id="para3">
+Use your browser's back button to return to the PipMaker Home Page.  
+Click on the PipMaker link, located just below the phrase 
+"The application itself can be found here:". This example will use a 
+section of the sequence from human chromosome 11 as the reference sequence, and 
+an EST query sequence.  In the box labeled "First sequence", paste in the 
+following reference sequence:
+    </para>
+    <para id="spaceA">
+    </para>
+    <para id="refsequence">
+<m:math>
+ <m:apply>
+   <m:gt/>
+	<m:ci/>
+        <m:ci>Sequence from homo sapiens chromosome 11</m:ci>
+   </m:apply>
+</m:math>
+    </para>
+<code display="block" id="idm26096">
+GAGGACGTGGCTGGGCTCGTGAAGCATGTGGGGGTGAGCCCAGGGGCCCC  
+AAGGCAGGGCACCTGGCCTTCAGCCTGCCTCAGCCCTGCCTGTCTCCCAG  
+ATCACTGTCCTTCTGCCATGGCCCTGTGGATGCGCCTCCTGCCCCTGCTG  
+GCGCTGCTGGCCCTCTGGGGACCTGACCCAGCCGCAGCCTTTGTGAACCA  
+ACACCTGTGCGGCTCACACCTGGTGGAAGCTCTCTACCTAGTGTGCGGGG  
+AACGAGGCTTCTTCTACACACCCAAGACCCGCCGGGAGGCAGAGGACCTG  
+CAGGGTGAGCCAACTGCCCATTGCTGCCCCTGGCCGCCCCCAGCCACCCC  
+CTGCTCCTGGCGCTCCCACCCAGCATGGGCAGAAGGGGGCAGGAGGCTGC  
+CACCCAGCAGGGGGTCAGGTGCACTTTTTTAAAAAGAAGTTCTCTTGGTC  
+ACGTCCTAAAAGTGACCAGCTCCCTGTGGCCCAGTCAGAATCTCAGCCTG  
+AGGACGGTGTTGGCTTCGGCAGCCCCGAGATACATCAGAGGGTGGGCACG  
+CTCCTCCCTCCACTCGCCCCTCAAACAAATGCCCCGCAGCCCATTTCTCC  
+ACCCTCATTTGATGACCGCAGATTCAAGTGTTTTGTTAAGTAAAGTCCTG  
+GGTGACCTGGGGTCACAGGGTGCCCCACGCTGCCTGCCTCTGGGCGAACA  
+CCCCATCACGCCCGGAGGAGGGCGTGGCTGCCTGCCTGAGTGGGCCAGAC  
+CCCTGTCGCCAGGCCTCACGGCAGCTCCATAGTCAGGAGATGGGGAAGAT  
+GCTGGGGACAGGCCCTGGGGAGAAGTACTGGGATCACCTGTTCAGGCTCC  
+CACTGTGACGCTGCCCCGGGGCGGGGGAAGGAGGTGGGACATGTGGGCGT  
+TGGGGCCTGTAGGTCCACACCCAGTGTGGGTGACCCTCCCTCTAACCTGG  
+GTCCAGCCCGGCTGGAGATGGGTGGGAGTGCGACCTAGGGCTGGCGGGCA  
+GGCGGGCACTGTGTCTCCCTGACTGTGTCCTCCTGTGTCCCTCTGCCTCG  
+CCGCTGTTCCGGAACCTGCTCTGCGCGGCACGTCCTGGCAGTGGGGCAGG  
+TGGAGCTGGGCGGGGGCCCTGGTGCAGGCAGCCTGCAGCCCTTGGCCCTG  
+GAGGGGTCCCTGCAGAAGCGTGGCATTGTGGAACAATGCTGTACCAGCAT  
+CTGCTCCCTCTACCAGCTGGAGAACTACTGCAACTAGACGCAGCCCGCAG  
+GCAGCCCCACACCCGCCGCCTCCTGCACCGAGAGAGATGGAATAAAGCCC  
+TTGAACCAGCCCTGCTGTGCCGTCTGTGTGTCTTGGGGGCCCTGGGCCAA  
+GCCCCACTTCCCGGCACTGTTGTGAGCCCCTCCCAGCTCTCTCCACGCTCTCTGGGT
+</code>
+    <para id="spaceB">
+    </para>
+    <para id="para4">
+In the box labeled "Second sequence", paste in the following query sequence:
+    </para>
+    <para id="space1">
+    </para>
+
+<code display="block" id="idm407184">
+TCAAGCAGATCACTGTCCTTCTGCCATGGCCCTGT
+GGATGCGCCTCCTGCCCCTGCTGGCGCTGCTGGCC
+CTCTGGGGACCTGACCCAGCCGCAGCCTTTGTGAA
+CCAACACCTGTGCGGCTCACACCTGGTGGAAGCTC
+TCTACCTAGTGTGCGGGGAACGAGGCTTCTTCTAC
+ACACCCAAGACCCGCCGGGAGGCAGAGGACCTGCA
+GGTGGGGCAGGTGGAGCTGGGCGGGGGCCCTGGTG
+CAGGCAGCCTGCAGCCCTTGGCCCTGGAGGGGTCC
+CTGCAGAAGCGTGGCATTGTGGAACAATGCTGTAC
+CAGCATCTGCTCCCTCTACCAGCTGGAGAACTACT
+GCAACTAGACGCAGCCCGCATGCAGNCCCCCACCC
+GCCGNCTTCTGCACCGAGAGAGATGGAATTAAACC
+CTTGAACCCAGCANANAAAAAAAAGAAATAAAA
+</code>
+
+    <para id="space2">
+    </para>
+    <para id="para5">
+Next, supply an email address in the appropriate box, so that PipMaker can email the results.  The box entitled "First sequence mask" will be left empty for this example.  In fact, if the reference sequence is submitted to RepeatMasker, it responds that there are no repeats detected in this sequence.  Feel free to try this, there is a link to RepeatMasker on the PipMaker Instruction page.  In the box entitled "First sequence exons", paste in the following information, which specifies exons that correspond roughly to the Genescan Gene Predictions for the reference sequence (these were illustrated in BLAT in a previous module).
+    </para>
+    <para id="spaceC">
+    </para> 
+    <para id="exons1">
+<m:math>
+ <m:apply>
+   <m:lt/>
+	<m:ci/>
+        <m:ci>100 1307 PUTATIVE INSULIN PRECURSOR</m:ci>
+   </m:apply>
+</m:math>
+    </para> 
+    <code display="block" id="idm297248">
+100 304
+1091 1307
+    </code> 
+    <para id="spaceD">
+    </para> 
+    <para id="para6">
+Now, click on the submit button.  Pipmaker will email several documents to you, 
+two of which will be a "pip.pdf" and a "dot.pdf".  View both of these figures 
+(you may need to zoom in).
+    </para>
+
+<exercise id="ex1">
+ 	<problem id="idm1308608">
+ 	  <para id="prob1">
+       What do you estimate the percent identities 
+       to be between (a) the query subsequence under Exon 1 and the reference 
+       subsequence, and (b) the query subsequence under Exon 2 and the 
+       reference subsequence?
+ 	  </para>
+ 	</problem>
+</exercise>
+
+  <exercise id="ex2">
+ 	<problem id="idm1212912">
+ 	  <para id="prob2">
+       Which sequence is represented by the vertical axis of 
+       the dot plot, the query sequence (the EST) or the reference sequence 
+       (from chromosome 11)? 
+ 	  </para>
+ 	</problem>
+</exercise> 
+ 
+    <para id="conclusion">
+Pipmaker was designed to be used with sequences that can be much longer than 
+these examples.  Look under the input to PipMaker section of the "PipMaker 
+Instructions" page.  
+</para>
+
+  <exercise id="ex3">
+ 	<problem id="idm2154208">
+ 	  <para id="prob3">
+       What is the maximum allowed length for the first 
+       (reference) sequence file? 
+ 	  </para>
+ 	</problem>
+</exercise>
+  <exercise id="ex4">
+ 	<problem id="idm2435440">
+ 	  <para id="prob4">
+       Is this the same as the maximum allowed 
+       length for the second (query) sequence file? 
+ 	  </para>
+ 	</problem>
+</exercise>
+
+
+<para id="concl_two">
+Feel free to try the PipMaker tool with other sets of related sequences.  
+The PipMaker home page provides a set of advanced instructions for those who 
+will be using this tool frequently for publications and reports.
+    </para>    
+  </content>
+
+  <bib:file>
+   <bib:entry id="pip">
+      <bib:article>
+	<bib:author>Schwartz et al.</bib:author>
+ 	<bib:title>PipMaker-A Web Server for Aligning Two Genomic DNA Sequences</bib:title> 
+	<bib:journal>Genome Research</bib:journal>
+        <bib:year>2000</bib:year>
+        <bib:pages> 10:577-586</bib:pages>
+      </bib:article>
+   </bib:entry>
+ </bib:file>   
+  
+</document>

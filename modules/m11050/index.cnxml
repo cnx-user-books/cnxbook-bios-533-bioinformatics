@@ -1,0 +1,454 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+  <title>Microarray Experiments</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>3331323c-5c35-42b5-9556-e66a1b7596ea</md:uuid>
+</metadata>
+
+
+
+  <content>
+    <para id="intro">
+Microarry chips are devices that enable the scientist to simultaneously measure the transcription level of every gene within a cell.  Microarrays are commercially available from a number of companies, such as <link url="http://www.affymetrix.com/">Affymetrix</link>, <link url="http://mp.invitrogen.com/">Invitrogen</link> and <link url="http://www.sigma-genosys.com/epp.asp">Sigma-Genosys</link>, to name a few. The chip is usually constructed by amplifying all the genes within the selected genome, yeast, for example, using polymerase chain reaction (PCR) methodology.  The  PCR products would then be "spotted" onto the chips by a robot, as single-stranded DNA that is linked by covalent bonds to the glass slide. The spots would be positioned in an array on a grid pattern, where each spot contains many identical copies of an individual gene.  A discussion of the chemistry involved in creating a microarry can be found on the <link url="http://www.affymetrix.com/technology/manufacturing/index.affx">technology page</link> of the Affymetrix website.  The position of the genes are recorded by spot location, so that the appropriate gene can be identified any time a probe hybridizes with, or binds to, its complementary DNA strand on the chip. 
+    </para> 
+
+
+    <para id="para1">
+Microarray chips measure transcriptomes, which are the entire collection of RNA transcripts within a cell under the given conditions. To use the chip to measure an experimental transcriptome against a reference transcriptome requires cells grown under two different conditions, the experimental conditions and the reference conditions.  The mRNA from the two different conditions are harvested separately, and 
+<cite target-id="RT"><cite-title>
+reverse transcriptase</cite-title></cite> 
+(1) is used to transcribe the mRNA into cDNA.  The nucleotides used to synthesize the cDNA will be labeled with either a green or red dye, one color for the reference conditions and the other for the experimental conditions.  The microarry chip is then incubated overnight with both populations of cDNAs, and a given cDNA will hybridize with the complementary strand from its gene that is covalently bound to a grid spot on the chip.  The chips are washed to remove any unbound cDNAs and then two computerized images are produced by scanning first to detect the grid spots containing cDNAs labeled with green dye, and second to detect the spots contain red-labeled cDNAs.  The computer also produces a merged image that will show a yellow spot for grid spots that contain both red- and green-labeled cDNAs, indicating transcripts that are expressed under both sets of conditions.  A very nice on-line, animated demonstration of the entire protocol is offered by the <link url="http://www.bio.davidson.edu/courses/genomics/chip/chip.html">Genomics Course</link> on the 
+<cite target-id="genomics"><cite-title>Davidson College website</cite-title></cite> (2).
+    </para>
+    <para id="para2">
+In addition to producing a qualitative image that is easy visualize, a microarray experiment yields quantitative data for each spot, consisting of the measured fluorescence intensity of the red signal, the fluorescence intensity of the green signal, and the ratio of red signal to green signal.  It is in storing and analyzing the quantitative data that bioinformatics really comes into play in microarray technology.  These data sets are incredibly large.  For instance, a typical mammalian cell is estimated to have between 10,000 to 20,000 different species of mRNA expressed at a given time.
+    </para>
+    <para id="para3">
+  As a demonstration, view the <link url="http://genome-www5.Stanford.EDU/MicroArray/SMD/">
+Stanford Microarray Database</link> website.  Under the Public Data section, click on the "Public Login" link.  
+
+Limit the data set search to the organism
+<foreign>Arabidopsis thaliana</foreign> and the author Gutierrez. Click on the button entitled "Display data", and a table of microarray datasets should be returned.  Choose one of the experiments, making note of the Experiment ID number from the table and select the clickable image icon.  (There is a legend for the icons at the top of the web page, if there is uncertainty as to which is the clickable image icon.)  This yields the qualitative visualization of the microarray experiment, as described previously in this module. Take a look 
+at the array image and note that it is difficult to draw many conclusions from 
+this kind of visualization.  
+    </para>
+
+
+
+		<exercise id="ex1">
+			<problem id="idp1203328">
+				<para id="prob1">
+ What is the Experiment ID number for the viewed microarray image?
+      	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex2">
+			<problem id="idp3723056">
+				<para id="prob2">
+Is it possible to get a feeling for which 
+color dot, green, red, or yellow, is most predominant just by viewing the image? (If so, which color?)
+      	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex3">
+			<problem id="idp4283088">
+				<para id="prob3">
+ Are all of the dots, over the entire grid, well-shaped? (Give a brief explanation.)
+      	                        </para>
+			</problem>
+		</exercise>
+    <para id="para4a"> 
+Click on one of the individual spots in the microarray grid.  This will open a new window that contains a close up of the individual spot and all the experimental information about that spot.
+    </para>
+		<exercise id="ex4">
+			<problem id="idm385056">
+				<para id="prob4">
+Retrieve and list the following information about the chosen spot:
+a.  spot number,  b.  description (under biological information), c. the Channel 1 intensity (mean), d.  the Channel 1 background (median), e.  the Channel 1 net intensity (mean), and f. the Log(base2) of R/G Normalized Ratio (Mean).
+      	                        </para>
+			</problem>
+		</exercise>
+
+    <para id="para4b"> 
+ 
+Return to the table of <foreign>Arabidopsis thaliana</foreign> data sets 
+and for
+Experiment ID #11374, select the "Data" icon, which is the first icon under 
+the "Options" column.  Next to "Sort By", select "Log(base2) of R/G Normalized 
+Ratio (Mean)", and "Descending".  Under "Display:", click on "Spot", 
+then scroll down and hold down the control key (or the apple key on macintoshes) while selecting "Log(base2) of 
+R/G Normalized Ratio (Mean)".  (The control key allows selection of additional 
+choices without deselecting the previous choice.)  Accept the default values for all 
+remaining options and select "Display" at the 
+bottom of the page.  Recall that the data are converted to numbers representing 
+the fluorescence intensity of red dye, green dye, and the ratios of red to green.
+  Scientists commonly use a log transformation of the ratio data, because the 
+logs are more mathematically tractable in reference to statistical analysis.  
+The results page will show the top ranking spots from this chip, ranked from highest log red/green value to lowest.  
+</para>
+		<exercise id="ex5">
+			<problem id="idm425472">
+				<para id="prob5">
+What are the spot numbers of the three highest ranking spots?
+      	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex6">
+			<problem id="idm10282576">
+				<para id="prob6">
+What are the "Log(base2) of R/G Normalized Ratio 
+          (Mean)" values for the three highest ranking spots?
+      	                        </para>
+			</problem>
+		</exercise>
+
+<para id="para4c">
+Use the browser's back button to go back and 
+select new data for display.  Chage the sorting 
+selection to R/G Normalized (Mean), in descending order.  under the "Display:" window select "Spot", then scroll down and hold 
+down the control key while selecting "R/G Normalized (Mean)".
+</para>  
+
+		<exercise id="ex7">
+			<problem id="idm8846128">
+				<para id="prob7">
+What are the spot numbers for the three highest ranking spots?
+      	                        </para>
+			</problem>
+		</exercise>		
+<exercise id="ex8">
+			<problem id="idm2550992">
+				<para id="prob8">
+What are the "R/G Normalized (Mean)" values for the three highest 
+ranking spots?
+      	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex9">
+			<problem id="idm2175904">
+				<para id="prob9">
+Does it change the ranking of the spots to use the 
+log transformations of the ratios instead of the ratios?
+      	                        </para>
+			</problem>
+		</exercise>
+ 
+    <para id="para5"> 
+To demonstrate a different method of visualizing and analyzing microarry data, 
+take a look at the MIT <link url="http://www-genome.wi.mit.edu/cgi-bin/cancer/datasets.cgi">
+Cancer Genomics Microarray Data Sets</link>.  Scroll down to the section 
+entitled "Gene Expression Correlates of Clinical Prostate Cancer Behavior".  
+Click on the first data set, for Prostate tumor and normal samples, entitled 
+"Prostate_TN_final0701_allmeanScale.res".  This data set originates from 
+Affymetrix chips.
+In this case, the signal is recorded as "A" for absent, "P" for present, and 
+"M" for marginal, as determined by the Affymetrix GeneChip software.  
+The numerical values are scaled average difference units for tumor vs. normal 
+prediction, and these values are also generated by the Affymetrix software.  A 
+more complete discussion of gene expression data analysis for Affymetrix 
+GeneChip Arrays can be found at the <link url="http://www.affymetrix.com/technology/data_analysis/index.affx">
+Affymetrix web site</link>.
+  </para>
+  <para id="para7">
+So far, the discussion has been primarily about visualizing and quantifying 
+the fluorescence signal from a microarray experiment.  However, analysis of 
+gene expression under experimental conditions versus reference conditions 
+requires determining whether observed differences are significant or not.     
+There are many sources of noise and variability in microarray data, including 
+experimental sources such as image scanning inconsistencies, issues involved in 
+computer interpretation and quantification of spots, hybridization variables 
+such as temperature and time discrepancies between experiments, and 
+experimental errors caused by differential probe labeling and efficacy of RNA 
+extraction.
+In addition, as the size of the sample increases, so does the probability of 
+finding some large differences due to chance.  Therefore, statistical analysis 
+is required to show that gene expression differences are real.
+  </para>
+  <para id="para8">
+There are some complex problems underlying statistical analysis of microarray 
+data, primarily related to the fact that the number of samples is very, very 
+large, but the number of times that each measurement is repeated is 
+comparatively very small.  (This is due mostly to cost and time issues.)  
+Also, the simplest statistical techniques commonly assume a normal distribution, 
+which cannot necessarily be assumed in microarray experiments. For a detailed 
+discussion, 
+<cite target-id="slonim"><cite-title>
+D. K. Slonim</cite-title></cite> 
+(3) has authored a 
+good review of the most current approaches to gene expression data analysis. 
+   </para>
+   <para id="para9"> 
+This tutorial will provide an oversimplified example of the type of statistical
+ analysis that needs to be applied to microarray data, using the t-test.  For a
+ given gene, A, the gene will have two associated vectors:
+ {a(ref)1, ..., a(ref)n} and {a(exp)1, ..., a(exp)n}, where a(ref) contains n 
+measurements of expression levels under reference conditions and a(exp) 
+contains n measurements of expression levels under experimental conditions.
+  </para>
+  <para id="para10">
+  The mean of each vector will be equal to:
+  </para> 
+<figure id="mean">
+   <media id="idm10243712" alt=""><image src="../../media/mean_small.jpg" mime-type="image/jpeg"/></media>
+</figure>
+ 
+<para id="para11">
+  The standard deviation of each vector will be equal to:
+</para> 
+<figure id="stdev">
+   <media id="idp3248992" alt=""><image src="../../media/sigma.jpg" mime-type="image/jpeg"/></media>
+</figure>
+<para id="para12">
+  The standard error of each vector will be equal to:
+</para> 
+<figure id="SE">
+   <media id="idm3319328" alt=""><image src="../../media/SE.jpg" mime-type="image/jpeg"/></media>
+</figure>
+    <para id="para13">
+The formula for the t test is as follows:
+    </para> 
+<figure id="ttest">
+   <media id="idp559472" alt=""><image src="../../media/Ttest.jpg" mime-type="image/jpeg"/></media>
+</figure>
+    <para id="space">
+    </para>
+    <para id="para14a">
+The t-test is used to test the difference between the means of two test sets, 
+as in before and after studies or matched-pairs studies.   
+There is a confidence interval for the mean and a critical value for t for the chosen level of 
+significance associated with the t-test.  For instance, a level of significance equal to 
+0.05 means that 95% of the cases will be within the confidence range
+if there is no significant difference between the means of the two test sets, or experiments, 
+being compared.  The confidence limits set upper and lower bounds on an estimate of the mean for
+the chosen level of significance (0.05). The confidence interval is the 
+range within the bounds of the confidence limits.  The confidence interval can be computed, 
+if you know the shape of your distribution.  For normally distributed data, the
+confidence limits at the 0.05 significance level 
+for an estimated mean are the sample mean plus or minus 1.96 times the 
+standard error.
+    </para>
+    <code display="block" id="idm9555664">
+       confidence interval (normal distribution):  mean +/- 1.96 * SE
+    </code>
+    <para id="para14b">
+For example, if the sample mean is 10 and the standard error is 1.2, 
+then 95% of the cases will be within the range of 10 plus or minus 1.96 times 1.2, 
+or 10 plus or minus 2.4, which is the range from 7.6 to 12.4.  
+Thus, if the experimental mean is outside the limits of this range computed for the reference mean, then the difference 
+between the means of the two test sets is considered to be significant within a
+probability of 95%.  The critical value for t at a given significance level for
+a specific type of distribution can be looked up in a table; most statistics 
+books contain them.  In the case of microarray data, if the absolute value of t
+is greater than the critical value, this indicates a significant difference in 
+the gene expression between the reference and experimental test sets. 
+Because the t-test is a parametric test that assumes a normal distribution, the 
+statistical tests that are commonly used to analyze microarray data are more complex
+variations that are used for distributions other than normal distributions.
+    </para>
+<table id="microarray_data" summary="">
+  <title> Tutorial Data Set </title>
+  <tgroup cols="8">
+  <thead>
+  <row>
+    <entry> </entry>
+    <entry>red:green ratio</entry>
+    <entry>red:green ratio</entry>
+    <entry>red:green ratio</entry>
+    <entry>red:green ratio</entry>
+    <entry>red:green ratio</entry>
+    <entry>red:green ratio</entry>
+    <entry>red:green ratio</entry>
+  </row>
+  <row>
+    <entry>Gene</entry>
+    <entry>measurement 1</entry>
+    <entry>measurement 2</entry>
+    <entry>measurement 3</entry>
+    <entry>measurement 4</entry>
+    <entry>measurement 5</entry>
+    <entry>measurement 6</entry>
+    <entry>measurement 7</entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>A(ref)</entry>
+    <entry>0.97</entry>
+    <entry>1.54</entry>
+    <entry>1.32</entry>
+    <entry>0.89</entry>
+    <entry>1.06</entry>
+    <entry>1.21</entry>
+    <entry> </entry>
+  </row>
+  <row>
+    <entry>A(exp)</entry>
+    <entry>1.37</entry>
+    <entry>1.25</entry>
+    <entry>1.15</entry>
+    <entry>0.99</entry>
+    <entry>1.30</entry>
+    <entry>1.53</entry>
+    <entry>1.07</entry>
+  </row>
+  <row>
+    <entry>B(ref)</entry>
+    <entry>1.67</entry>
+    <entry>1.78</entry>
+    <entry>2.01</entry>
+    <entry>1.89</entry>
+    <entry>1.75</entry>
+    <entry>1.81</entry>
+    <entry>1.69</entry>
+  </row>
+  <row>
+    <entry>B(exp)</entry>
+    <entry>6.21</entry>
+    <entry>6.03</entry>
+    <entry>5.94</entry>
+    <entry>6.14</entry>
+    <entry>6.11</entry>
+    <entry> </entry>
+    <entry> </entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+
+    <para id="space2">
+    </para>
+    <para id="para15">
+<emphasis>Assumptions for example problem:</emphasis>
+<list id="sequences" list-type="enumerated">
+<item>Use the example data set to perform a t-test analysis.</item>  
+<item>Consider each row of the table a separate test set under either experimental or reference conditions.</item> 
+<item>Assume a normal distribution.</item>
+<item>Choose 0.05 as the level of significance.</item>   
+<item>Compute answers to the second decimal place.</item> 
+<item>Assume the critical value for t is equal to an absolute value
+ of t greater than 2.37.</item>  
+</list> 
+</para>
+
+		<exercise id="ex10">
+			<problem id="idp6616240">
+				<para id="prob10">
+What are the means for each row of data?
+      	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex11">
+			<problem id="idp1127904">
+				<para id="prob11">
+What are the standard deviations for each row of data?
+      	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex12">
+			<problem id="idp305712">
+				<para id="prob12">
+What is the standard error for each row of data?
+      	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex13">
+			<problem id="idp3054496">
+				<para id="prob13">
+What is the value for t for the comparison between the reference 
+and experimental test sets for Gene A?
+      	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex14">
+			<problem id="idm9147952">
+				<para id="prob14">
+ What is the 95% confidence interval computed for the Gene A reference set?
+      	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex15">
+			<problem id="idp1595936">
+				<para id="prob15">
+Is there a significant difference between 
+the mean values of the experimental versus the reference set for Gene A?  (Explain the answer both in terms of the t value and the confidence interval.)
+      	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex16">
+			<problem id="idp2641136">
+				<para id="prob16">
+What is the value for t for the comparison between the reference and 
+experimental test sets for Gene B?
+      	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex17">
+			<problem id="idm9338160">
+				<para id="prob17">
+ What is the 95% confidence interval computed for the Gene B 
+reference set?
+      	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex18">
+			<problem id="idm9814592">
+				<para id="prob18">
+Is there a significant difference between the mean values of the 
+experimental versus the reference set for Gene B? (Explain
+the answer both in terms of the t value and the confidence interval.)
+      	                        </para>
+			</problem>
+		</exercise>
+		<exercise id="ex19">
+			<problem id="idp4574080">
+				<para id="prob19"> 
+If there was a significant difference between the gene expression 
+under experimental conditions versus the gene expression under reference 
+conditions for either Gene A or Gene B, then estimate the significant increase 
+or decrease observed.
+      	                        </para>
+			</problem>
+		</exercise>
+ 
+
+    <para id="conclusion">
+There are many software packages available that have been designed expressly 
+for microarray data analysis.  In addition to testing gene expression under a 
+set of experimental conditions versus reference conditions, it is possible to 
+identified "clustered" genes that seem to have similar responses under similar 
+conditions.  Also, genes can be identified that show related responses under 
+similar conditions, such as one gene's expression always increases when 
+another's decreases.  When two or more genes show this kind of clustered 
+behavior, it can be an indication that they are part of the same pathway, 
+or that they are regulating each other.  Using this type of microarray data 
+analysis, the scientist can combine the cluster analysis results with what is known through laboratory experiments and often come up with new hypotheses about biochemical pathways and regulation.
+    </para> 
+  </content>  
+     <bib:file>
+          <bib:entry id="RT">
+               <bib:article>
+         	<bib:author>Berger SL, Wallace DM, Puskas RS, Eschenfeldt  WH</bib:author>
+          	<bib:title> Reverse transcriptase and its associated ribonuclease H: interplay of two enzyme activities controls the yield of single-stranded complementary deoxyribonucleic acid</bib:title>
+        	<bib:journal> Biochemistry </bib:journal>
+                <bib:year> 1983</bib:year>
+                <bib:pages>22(10):2365-72</bib:pages>
+               </bib:article>
+           </bib:entry>
+
+           <bib:entry id="genomics">
+             <bib:misc>
+          	<bib:title> Genomics Course, Department of Biology, Davidson College, Davidson, NC 28036</bib:title>
+                <bib:note> http://www.bio.davidson.edu/courses/genomics/genomics.html </bib:note>
+              </bib:misc>
+           </bib:entry>
+
+           <bib:entry id="slonim">
+               <bib:article>
+         	<bib:author>Slonim DK</bib:author>
+          	<bib:title> From patterns to pathways: gene expression data analysis comes of age</bib:title>
+        	<bib:journal> Nat Genet. </bib:journal>
+                <bib:year> 2002 </bib:year>
+                <bib:pages> 32 Suppl:502-8</bib:pages>
+               </bib:article>
+           </bib:entry>
+     </bib:file>
+
+</document>

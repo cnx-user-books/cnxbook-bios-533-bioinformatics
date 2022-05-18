@@ -1,0 +1,276 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+  <title>Entrez</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>a1690004-744c-422e-8916-c92b493ef0a7</md:uuid>
+</metadata>
+
+
+
+  <content>
+    <para id="intro">
+
+	<cite target-id="entrez"><cite-title>Entrez</cite-title></cite> (1)
+is a search and retrieval tool developed by NCBI that is capable of searching multiple NCBI databases with just one query. Entrez returns search results that can include a combination of many types of data on the query, such as nucleotide sequences, protein sequences, macromolecular structures, and related articles in the literature.   Prior to the creation of Entrez, an individual might have to place one query to a nucleotide database to find a nucleotide sequence, submit another query to a structural database to find the published structure of the gene product, and submit a final query to a literature database to find citations for journal articles on the query topic. NCBI recognized the time and effort that could be saved by a tool that could cross-link these databases and integrate all information related to a given query subject into one report.
+View the <link url="http://www.ncbi.nlm.nih.gov/Database/index.html">Entrez 
+Database page</link>. This module contains a few problem questions,  
+for use in a computer lab setting.  The lab instructor may require that you 
+supply answers to these questions as an indication that you have completed the 
+module.
+    </para> 
+
+    <para id="para2">
+The Entrez Nucleotides database includes sequences from GenBank, RefSeq, and 
+PDB. GenBank is the National Institutes of Health (NIH) genetic sequence 
+database. GenBank, the DNA DataBank of Japan (DDBJ) and the European Molecular 
+Biology Laboratory (EMBL) comprise the International Nucleotide Sequence 
+Database Collaboration. These three organizations exchange data on a daily 
+basis.  The number of bases in the Entrez Nucleotides database currently grows 
+at an exponential rate. Click on the Nucleotide link listed under the heading
+"Nucleotide Databases". 
+    </para>
+
+<exercise id="ex1">
+ 	<problem id="idp2037232">
+ 	  <para id="prob1">What is the number of bases stored in the Entrez nucleotide database, as of the last report? 
+ 	  </para>
+ 	</problem>
+</exercise>
+
+    <para id="para3">
+	Use the back arrow of the browser to return to the Entrez Database web page. Locate the
+MMDB (Molecular Modeling DataBase), one of NCBI's structure databases and click 
+on the link to read about it. 
+MMDB is a subset of three-dimensional structures obtained from the Protein 
+Data Bank (PDB), excluding theoretical models. While the protein databases contain protein sequences, the structural database contains coordinate files
+(PDB files) of biological molecules with solved (known) structures. 
+Click on the arrow next to the search box at the top of the web page
+and view the list of databases for selection.
+The literature database is 
+accessed through PubMed, which encompasses the National Library of Medicine's 
+journals database, MEDLINE, as well as providing some additional online 
+services.  MEDLINE is a collection of medical and life science journal 
+citations that includes articles dating back to the mid-1960's. 
+ 
+
+Entrez 
+allows access to information such as nucleotide and protein sequences 
+organized by species in the NCBI taxonomy database, also found on the selection
+list.  The connectivity of the databases available on the selection list are indicated by the diagram on the <link url="http://www.ncbi.nlm.nih.gov/Database/index.html">Entrez Database web page</link>. Click on the diagram to access a Flash model of Entrez database
+connectivity.  As long as the browser has a Flash plug-in, placing the mouse over one of the nodes representing a database will highlight its connectivity.
+Try this on the node labeled "Protein".  Actually clicking on the node will forward the user to the database home page.
+</para> 
+    <para id="para4">
+	Use the back arrow of the browser to return to the Entrez Database web page.  There is a menu bar at the top of many NCBI web pages that contains 
+links to the most commonly used tools and databases, such as PubMed, Entrez, and BLAST.  Click on the "Entrez"link at the top of the page.  The Entrez cross-database search page should be visible in your browser, now. Here, one can enter a query and click "GO" to search
+against all databases, or click on a database link for the search page that is specific
+to that database. 
+Perform a search using the query string
+<foreign>Mycobacterium tuberculosis</foreign>, and click "GO".  
+</para>
+
+<exercise id="ex2">
+ 	<problem id="idm7843872">
+ 	  <para id="prob2">
+ 	  How many PubMed literature citations and abstracts contain the 
+character string <foreign>Mycobacterium tuberculosis</foreign>?
+ 	  </para>
+ 	</problem>
+</exercise>
+<exercise id="ex3">
+ 	<problem id="idm7273136">
+ 	  <para id="prob3">
+ 	  How many nucleotide sequences are returned?
+ 	  </para>
+ 	</problem>
+</exercise>
+<exercise id="ex4">
+ 	<problem id="idp6450368">
+ 	  <para id="prob4">
+ 	  How many protein sequences are returned?
+ 	  </para>
+ 	</problem>
+</exercise>
+<exercise id="ex5">
+ 	<problem id="idm7876832">
+ 	  <para id="prob5">
+ 	  How many 3-D macromolecular structure entries are returned?
+ 	  </para>
+ 	</problem>
+</exercise>
+
+<para id="para4contd"> 
+Click on one or two of the databases that returned items in response to this query.
+Take a quick look at the information returned as a match.  
+This is an overwhelming amount of information that has been returned in response
+to this query.  It is difficult to do anything with this much information.  For 
+this reason, a good search strategy is required to limit the search as 
+cleverly as possible in an attempt to obtain mostly records of interest, with very 
+little excess information, without restricting the search so much that it is 
+likely to miss important records.  
+</para> 
+   
+    <para id="para5">
+There are many different ways to limit a search query. To illustrate one approach
+available in Entrez,
+from the cross-database search page, click on the Nucleotide Database link.
+Notice the menu just under the query box, and click on the link entitled "Limits".
+Under "Limited to:", select "organism".  On the pull-down menus, change the limits
+from "molecule" to "Genomic DNA/RNA", change "segmented sequences" to "show only master
+of set", and change "only from" to "GenBank".  This limits the search from returning
+records from any type of molecule, including protein, ESTs, etc., to only records
+of submitted Genomic DNA or RNA sequences.  It furthermore limits the sequences returned
+to only master sequences of any sets, and it only searches the GenBank database for
+records. Using <foreign>Mycobacterium tuberculosis</foreign> as the query string again, perform
+the search with these limits.
+</para>
+ 
+<exercise id="ex6">
+ 	<problem id="idm7816160">
+ 	  <para id="prob6">
+ 	  Now, how many nucleotide sequences are returned?
+ 	  </para>
+ 	</problem>
+</exercise>
+<exercise id="ex7">
+ 	<problem id="idp1008576">
+ 	  <para id="prob7">
+ 	  How does this compare to the number of nucleotide sequences returned
+      in the cross-database search?
+ 	  </para>
+ 	</problem>
+</exercise>
+  
+<para id="para5a">
+Hopefully, this has illustrated that a general cross-database search is best used 
+when there is very little information available related to the query, and so
+it is desirable to find all pieces of related data.  However, when lots of data
+is available related to the query, it it desirable to limit your items returned.
+Using the "Limits" function in Entrez is not always the best way to limit a query, 
+though.  Perhaps the area of interest happens to be genes that help confer drug
+resistance to <foreign>Mycobacterium tuberculosis</foreign>.  Deselect the previously set
+limits by clicking on the check mark to the left so that it disappears.  Now,
+search "nucleotide" using the query string "<foreign>Mycobacterium tuberculosis</foreign> drug resistance".
+</para>  
+
+<exercise id="ex8">
+ 	<problem id="idm6930784">
+ 	  <para id="prob8">
+ 	  How many items (sequence records) are returned?
+ 	  </para>
+ 	</problem>
+</exercise>
+
+<para id="para5b">
+Look at the list of results.  The numbers at the head of each result are called access codes.   Click on the access code of one of these records.  
+The left column of the record contains terms that are referred 
+to as "identifiers".  The identifiers in any database are defined terms
+that indicate the record section and the type of data included in that 
+section.
+Scroll down to the section entitled "Features".  Two common identifiers found
+in this section are "gene" and "CDS" listings.
+The CDS tag identifies "coding DNA 
+sequences", meaning these sequences have been determined (most often by 
+bioinformatics and not experimental methods) to encode proteins, and are 
+thus distinguished from the noncoding regions that make up a substantial 
+amount of the DNA in the human genome.  A good primer on the basic 
+characteristics of DNA, including the differences between coding versus 
+noncoding sequences, can be found on the 
+<cite target-id="dolan"><cite-title>
+Dolan</cite-title></cite> DNA Learning Center 
+<link url="http://www.bioservers.org/bioinformatics/dna_characteristics.htm">
+web page</link> (2).
+  
+Scroll through the results, and notice that there are links embedded in this 
+record.  These links connect this record to other databases, as illustrated in the connectivity diagram discussed earlier in this module.  So, even though this
+search was performed over the nucleotide database, the result may contain a link
+that takes us to a record in the protein database.  Find a record that contains a "gene" link in the Features section of the record, and click on this link.
+In the new record,
+there should be a sequence of capital letters at the bottom of the CDS section.
+</para>
+
+<exercise id="ex9">
+ 	<problem id="idm836688">
+ 	  <para id="prob9">
+ 	   What does this sequence represent? 
+ 	  </para>
+ 	</problem>
+</exercise>
+
+<para id="para5c">
+There is an additional sequence
+in lower case letters at the bottom of this record.
+</para>
+
+<exercise id="ex10">
+ 	<problem id="idp10176">
+ 	  <para id="prob10">
+ 	   What type of sequence is represented by the lower case letters? 
+ 	  </para>
+ 	</problem>
+</exercise>
+
+<para id="para5d">
+If these questions regarding sequences have been difficult to answer, 
+please review the 
+<link url="http://www.bioservers.org/bioinformatics/Worksheets/genetic_code.htm">genetic code</link>, 
+as this is prerequisite information for this course.        
+       
+    </para> 
+    <para id="conclusion">
+Try your own search.  Scroll back to the top of the web page and this time next
+ to the Search command, choose PubMed from the menu.  Pick any life sciences 
+topic that interests you for your query.  Attempt a first query with a general 
+topic, such as protein kinase or diabetes.
+</para>
+
+<exercise id="ex11">
+ 	<problem id="idp1506576">
+ 	  <para id="prob11">
+ 	   What type of results does PubMed return from a query? 
+ 	  </para>
+ 	</problem>
+</exercise>
+
+<para id="concl_a">  
+
+      Note how many items in total 
+      (not just on the first page) were returned.  Make your 
+      query topic related to your original choice, but more specific.  
+      For example, change 'protein kinase' to 'protein kinase C'.
+</para>
+
+<exercise id="ex12">
+ 	<problem id="idm6344512">
+ 	  <para id="prob12">
+ 	   How much did this reduce the number of items returned?  
+ 	  </para>
+ 	</problem>
+</exercise>
+
+<para id="concl_b">  
+
+
+This module is intended
+as an introduction to performing searches of the NCBI databases using Entrez.
+If you are unfamiliar with Entrez, please feel free to return to this module
+as a resource for getting started on NCBI searches.      
+    </para> 
+  </content>
+ <bib:file>
+   <bib:entry id="entrez">
+      <bib:article>
+	<bib:author>Benson D.A., Boguski M.S., Lipman D.J., Ostell J.</bib:author>
+ 	<bib:title>GenBank</bib:title> 
+	<bib:journal>Nucleic Acids Res. </bib:journal>
+        <bib:year>1994</bib:year>
+        <bib:pages>22:3441-3444</bib:pages>
+      </bib:article>
+   </bib:entry>
+   <bib:entry id="dolan">
+      <bib:misc>
+ 	<bib:title>Dolan DNA Learning Center</bib:title> 
+        <bib:note> http://www.bioservers.org/</bib:note>
+      </bib:misc>
+   </bib:entry>
+ </bib:file>  
+ 
+</document>

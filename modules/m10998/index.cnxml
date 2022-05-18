@@ -1,0 +1,46 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Tour of Bioinformatics Sites</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>d35c105b-c203-4fec-ac85-2837945466b8</md:uuid>
+</metadata>
+
+
+
+  <content>
+        <para id="intro">
+This is a tour of various bioinformatics web sites and search launchers.  It is a good idea to be familiar with many of the bioinformatics centers, because they tend to emphasize the methodology that they have had a hand in developing, and therefore each institution offers somewhat different tools.  Most of the databases share information, particularly the Japanese, European and North American databases, so the databases essentially mirror each other.  However, it is worth exploring different bioinformatics web sites to take advantages of the different tools for data analysis that they have to offer.
+
+    </para> 
+    <para id="para2">The European Bioinformatics Institute (EBI) is a part of the European Molecular Biology Laboratory (EMBL).  The European Molecular Biology Laboratory is a non-profit, academic entity supported by sixteen countries including nearly all of Western Europe and Israel, with facilities in Heidelberg (Germany), Hamburg (Germany), Grenoble (France), Hinxton (the U.K.), and Monterotondo (Italy).  The EBI is the bioinformatics arm of the EMBL, and it functions in Europe to maintain and create databases and bioinformatics tools in the same way NCBI does in the United States.  EBI maintains the <link url="http://www.ebi.ac.uk/Tools/">EBI Toolbox</link>, a selection of bioinformatics software that can be accessed on the internet.  The Toolbox web page has a menu on the left of the page that lists different categories of tools such as Homology and Similarity, Protein Functional Analysis, Structural Analysis, Sequence Analysis and Miscellaneous Tools.  Look through these categories to get an idea of the number of tools available at this web site alone.    
+   </para>
+    <para id="para3">
+	A very large selection of tools are available on <link url="http://us.expasy.org/tools/">ExPASy</link>, (Expert Protein Analysis System), the proteomics server of the Swiss Institute of Bioinformatics (SIB).  The ExPASy tools and databases are numerous, and relatively
+easy to locate and use.  ExPASy is also unusually good about documentation, including in their databases "SeqAnalRef", one of the few good listings of bioinformatics bibliographic references.  Take a moment to inspect this web site and the array of tools it provides.
+    </para>
+    <para id="para4">
+	The Baylor College of Medicine <link url="http://searchlauncher.bcm.tmc.edu/">Search Launcher</link> contains a nice  variety of bioinformatics tools.  This site benefits from a close association with the Human Genome Center at Baylor, and offers new tools that have been developed in conjunction with this collaborative effort.  An example of one of the tools developed at Baylor is BEAUTY (BLAST enhanced alignment utility), an enhanced version of NCBI's BLAST tool that aids in assigning functions to matched sequences.  Tour the BCM search launcher and read about the BEAUTY search. 
+</para>
+ <para id="para5">
+These are only a few of the many bioinformatics sites available via the internet.  Perform a <link url="http://www.google.com/">Google</link> search with "bioinformatics tools" as your query.
+</para>
+    
+    <exercise id="ex1">
+     	<problem id="idm6377376">
+     	  <para id="prob1">
+     	  How many results were returned from this search? 
+     	  </para>
+     	</problem>
+    </exercise>
+    <exercise id="ex2">
+     	<problem id="idm425200">
+     	  <para id="prob2">
+     	  List at least two sites other than an NCBI, PDB, EBI, ExPASy or BCM associated site that contain a collection of bioinformatics tools, and list the sponsoring organizations.  (It is acceptable to list pages that contain links to the sites above, as long as they are not sponsored by the organizations listed above.)
+     	  </para>
+     	</problem>
+    </exercise>
+    
+<para id="conclusion">
+As is evident by the number of results returned in this google search, bioinformatics is somewhat unique in that it is one of the rare new branches of science spawned almost entirely on the internet.
+</para> 
+</content>
+  
+</document>

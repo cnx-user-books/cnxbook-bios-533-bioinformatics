@@ -1,0 +1,224 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+	<title>Protein Folding and Secondary Structure Prediction</title>
+	<metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>141bab40-6fef-4384-b9fe-2900112a9f01</md:uuid>
+</metadata>
+	<content>
+		<para id="intro">
+Proteins are the biological molecules that are the building blocks of cells and organs, and the biochemical processes required to keep living organisms alive are catalyzed and regulated by a particular category of proteins called enzymes.  Proteins are linear polymers of amino acids that fold into complex conformations dictated by the physical and chemical properties of the amino acid chain.  The biological function of a protein is dependent on the protein folding into the correct, or "native", state. Protein structure is described by biologists in terms of primary structure, which is the amino acid sequence, secondary structure, wherein the polypeptide backbone assembles into local regions of alpha-helices, beta-sheets, coils and turns, tertiary structure, which refers to the entire 3-dimensional structure of the protein, and quaternary structure, which describes interactions between separate polypeptide chains, called subunits, that exist in some large protein complexes.  Computational methods have been developed that can predict protein secondary structure with a reasonable degree of accuracy.  Prediction methods exist for predicting tertiary structure, but the accuracy of such methods is highly dependent on whether or not the protein in question is related in sequence to any members of the existing library of known protein structures.  The development of <foreign>ab initio</foreign> tools to predict the complete structural fold of a protein from its amino acid sequence is a burgeoning field in computational biology, but true attainment of this goal is still pretty distant.
+    </para>
+		<para id="para1">
+Protein folding is usually a spontaneous process, and often when a protein unfolds because of heat or chemical denaturation, it will be capable of refolding into the correct conformation, as soon as it is removed from the environment of the denaturant, meaning folding and unfolding under these circumstances are reversible.  
+Protein folding can go wrong for many reasons. When an egg is boiled, the proteins in the white unfold and misfold into a solid mass of protein that will not refold or redissolve. In a similar way, irreversibly misfolded proteins form insoluble protein aggregates found in certain tissues that are characteristic of some diseases, such as Alzheimer's Disease.
+    </para>
+		<para id="para2">
+Determining the process by which proteins fold into particular shapes, characteristic of their amino acid sequence, is commonly called "the protein folding problem".  One approach to studying the protein folding process is the application of statistical mechanics techniques and simulations to the 
+<cite target-id="clementi"><cite-title>study of protein folding.</cite-title></cite> (1) These methods allow the investigation of larger systems than methods that try to represent atomic detail in their simulations of biological molecules, and have had success correlating the computational folding model with folding intermediates and transition states that have been experimentally measured for a limited test set of relatively large proteins.  
+
+    </para>
+		<para id="para3">
+An approach that uses an atomistic model for protein folding in a solvent environment is being taken by <cite target-id="stanford"><cite-title>The Stanford University </cite-title></cite> (2)
+<link url="http://folding.stanford.edu/">Folding@home</link> project, using large scale distributed computing that allows timescales thousands to millions of times longer than previously achievable  with a model of this detail.
+
+Look at the menu on the left border of the Stanford 
+<link url="http://folding.stanford.edu/">Folding@home</link> web page.  Click on the "Science" link to read the scientific background behind the protein folding distributed computing project. 
+    </para>
+		<exercise id="ex1">
+			<problem id="idp5897392">
+				<para id="prob1">
+ 	   What are the 3 functions of proteins that are mentioned in the "What are proteins?" section of the scientific background? 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex2">
+			<problem id="idp765808">
+				<para id="prob2">
+What are 3 diseases that are believed to result from protein misfolding?
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex3">
+			<problem id="idm1032592">
+				<para id="prob3">
+ 	  What are typical timescales for molecular dynamics simulations?
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex4">
+			<problem id="idp7303792">
+				<para id="prob4">
+ 	 What are typical timescales at which the fastest proteins fold?
+ 	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex5">
+			<problem id="idm828816">
+				<para id="prob5">
+How does the Stanford group break the microsecond barrier with their simulations? 	  </para>
+			</problem>
+		</exercise>
+		<para id="para4">
+Return to the Stanford 
+<link url="http://folding.stanford.edu/">Folding@home</link> home page.  Click on the "Results" link in the left border of the web page. Look at the information on the folding simulations of the villin headpiece.  
+</para>
+		<exercise id="ex6">
+			<problem id="idm509856">
+				<para id="prob6">
+How many amino acids are in the simulated villin headpiece?
+	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex7">
+			<problem id="idp7955232">
+				<para id="prob7">
+How does this compare with the number of amino acids in a typical protein?  
+	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex8">
+			<problem id="idp7142240">
+				<para id="prob8">
+Taking into consideration the size of the biological molecules in these simulations and the requirements that necessitated using large scale distributed computing methods for the simulations, what are the biggest impediments to understanding the protein folding problem? 
+	  </para>
+			</problem>
+		</exercise>
+		<para id="para5">
+Although attempts at predicting tertiary and quaternary structure from the amino acid sequence of proteins are relatively new, methods for predicting protein secondary structure have been in existence for some time.  Depending on the method, secondary structure predictions can be performed with approximately 60 - 70% accuracy.  Originally, empirical prediction methods were based on tables which listed each amino acid and the frequency with which that amino acid was found in alpha-helices, beta-sheets, turns and random coil.  Currently, prediction methods usually employ machine learning in the form of neural networks that are trained with test sets consisting of sequences with known structure.  In these cases, the selection of the test set is critically related to the accuracy of the method.  However, given the ever increasing number of known structural folds, selecting a representative test set that includes many proteins of diverse structure has become easier.
+    </para>
+		<para id="para6">
+Use the amino sequence below to explore some structure prediction tools.  This is the sequence for lac repressor, a protein involved in gene regulation that is known to have both alpha-helical and beta-sheet structure:
+    </para>
+		<para id="space1">
+		</para>
+		<code display="block" id="idp13135952">
+&gt;gi|33112645|sp|P03023|LACI_ECOLI Lactose operon repressor
+MKPVTLYDVAEYAGVSYQTVSRVVNQASHVSAKTREKVEAAMAELNYIPNRVAQQLAGKQSLLIGVATSS
+LALHAPSQIVAAIKSRADQLGASVVVSMVERSGVEACKAAVHNLLAQRVSGLIINYPLDDQDAIAVEAAC
+TNVPALFLDVSDQTPINSIIFSHEDGTRLGVEHLVALGHQQIALLAGPLSSVSARLRLAGWHKYLTRNQI
+QPIAEREGDWSAMSGFQQTMQMLNEGIVPTAMLVANDQMALGAMRAITESGLRVGADISVVGYDDTEDSS
+CYIPPLTTIKQDFRLLGQTSVDRLLQLSQGQAVKGNQLLPVSLVKRKTTLAPNTQTASPRALADSLMQLA
+RQVSRLESGQ
+</code>
+		<para id="space2">
+		</para>
+		<para id="para7">
+A quick and simple analysis of protein secondary structure can be performed by the <link url="http://www.cmpharm.ucsf.edu/~nomi/nnpredict.html">nnpredict tool </link> at <cite target-id="nnpredict"><cite-title>UCSF.</cite-title></cite> (3)  Notice when pasting the above sequence into the query page that there is a separate line for the name of sequence, meaning that the first line in the above fasta format sequence should be entered here, separately from the rest of the sequence.  Compare the nnpredict results to the actual secondary structure of lac repressor, known from the 
+<cite target-id="lacpdb"><cite-title>crystal structure with PDBID 1LBI.</cite-title></cite> (4)
+    </para>
+		<para id="space3">
+		</para>
+		<code display="block" id="idp6264048">
+Sequence and secondary structure - lac Repressor
+Data is from PDB accession number 1LBI, RCSB Protein Data Bank.
+The legend for the assignments are: 
+H=helix; B=residue in isolated beta bridge; E=extended beta strand; 
+G=310 helix; I=pi helix; T=hydrogen bonded turn; S=bend.
+
+   1 MKPVTLYDVA EYAGVSYQTV SRVVNQASHV SAKTREKVEA AMAELNYIPN 
+                                                            
+
+  51 RVAQQLAGKQ SLLIGVATSS LALHAPSQIV AAIKSRADQL GASVVVSMVE 
+                  EEEEEEES S  HHHHHHH HHHHHHHHHH T EEEEEEE  
+
+ 101 RSGVEACKTA VHNLLAQRVS GLIINYPLDD QDAIAVEAAC TNVPALFLDV 
+     SSHHHHHHHH HHHHHHS  S EEEEES   S TTHHHHHHTS  SS EEESSS 
+
+ 151 SDQTPINSII FSHEDGTRLG VEHLVALGHQ QIALLAGPLS SVSARLRLAG 
+      TTSSS EEE E TTHHHHHH HHHHHHHT    EEEEE  SS SSHHHHTHHH 
+
+ 201 WHKYLTRNQI QPIAEREGDW SAMSGFQQTM QMLNEGIVPT AMLVANDQMA 
+     HHHHHTTTT    SEEEE  S SHHHHHHHHH HHHTTT   S EEEESSHHHH 
+
+ 251 LGAMRAITES GLRVGADISV VGYDDTEDSS CYIPPLTTIK QDFRLLGQTS 
+     HHHHHHHHTT TTTBTTTEEE E SB  TTGG GSSS   EEE   HHHHHHHH 
+
+ 301 VDRLLQLSQG QAVKGNQLLP VSLVKRKTTL APNTQTASPR ALADSLMQLA 
+     HHHHHHHHT   S  S EEE   EEE  TT   S TTS   HH HHHHHHHHHH 
+
+ 351 RQVSRLESGQ  
+     HHHHHH 
+
+
+</code>
+		<para id="space4">
+		</para>
+		<exercise id="ex9">
+			<problem id="idp493728">
+				<para id="prob9">
+Look for regions identified as alpha-helical by nnpredict, but not identified as alpha-helical in the actual secondary structure features listed above, and vice versa. Are there any regions of 3 consecutive amino acids or more that differ?  If so, how many alpha-helical regions differ and what residue numbers are involved?
+	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex10">
+			<problem id="idp519808">
+				<para id="prob10">
+Look for regions identified as beta-sheet by nnpredict, but not identified as beta-sheet in the actual secondary structure features listed above, and vice versa. Are there any regions of 3 consecutive amino acids or more that differ?  If so, how many beta-sheet regions differ and what residue numbers are involved?
+	  </para>
+			</problem>
+		</exercise>
+		<exercise id="ex11">
+			<problem id="idp9841936">
+				<para id="prob11">
+The PDB entry for the crystal structure of lac Repressor remarks that the N-terminal residues number 1 - 61 and the C-terminal residues number 358 - 360 are not seen in the electron density.  How would this effect the assignment of actual secondary structure shown above? 
+	  </para>
+			</problem>
+		</exercise>
+		<para id="para8">A more complete sequence analysis tool that includes secondary structure prediction can be found at <link url="http://www.predictprotein.org/"> the PredictProtein server </link> at <cite target-id="pp"><cite-title>Columbia University.</cite-title></cite> (5) On the home page,  select the tab for submission to enter a protein sequence for secondary structure prediction.  The instructions indicate that you should only enter the amino acid sequence, so omit the first line when you paste in the fasta format sequence above for lac Repressor.  Click on the "Results on the site, not in email" option.  The server will still send an email with a link to the results.  Run the prediction tool for lac Repressor sequence. When the email arrives, click on the link for your results. The secondary structure prediction algorithms are within the section entitled PROF.  This is the section needed to answer the following questions.  
+    </para><exercise id="ex12">
+			<problem id="idp13652608">
+				<para id="prob12">
+Give a brief summary comparing the ProteinPredict results with the actual secondary structure from the PDB, listed above, and with the results from nnpredict.   
+	  </para>
+			</problem>
+		</exercise>
+		<para id="conclusion">
+With the publication of entire genomes that contain sequences to many unknown proteins, scientists would love to have the ability to predict the final folded structure of a protein based on its sequence.  Although this is not yet a practical reality, tools exist that can predict secondary structure with some accuracy and inroads are being made toward solving the protein folding problem.  Elucidating the mechanisms behind protein folding would provide important knowledge for fighting disease states where misfolded proteins are implicated.
+    </para>
+	</content>
+	<bib:file>
+		<bib:entry id="clementi">
+			<bib:article>
+				<bib:author>  C. Clementi, H. Nymeyer and J.N. Onuchic </bib:author>
+				<bib:title>Topological and energetic factors: what determines the structural details of the transition state ensemble and 'on-route' intermediates for protein folding? An investigation for small globular proteins</bib:title>
+				<bib:journal>Journal of Molecular Biology</bib:journal>
+				<bib:year>2000</bib:year>
+				<bib:pages>298: 937-953</bib:pages>
+			</bib:article>
+		</bib:entry>
+		<bib:entry id="stanford">
+			<bib:article>
+				<bib:author> Zagrovic B., Sorin E. and Pande V. </bib:author>
+				<bib:title> Beta-Hairpin Folding Simulations in Atomistic Detail Using an Implicit Solvent Model</bib:title>
+				<bib:journal>JMB </bib:journal>
+				<bib:year> 2001</bib:year>
+				<bib:pages> 313:151-169</bib:pages>
+			</bib:article>
+		</bib:entry>
+		<bib:entry id="nnpredict">
+			<bib:article>
+				<bib:author> D. G. Kneller, F. E. Cohen and R. Langridge</bib:author>
+				<bib:title>Improvements in Protein Secondary Structure Prediction by an Enhanced Neural Network</bib:title>
+				<bib:journal>JMB </bib:journal>
+				<bib:year> 1990</bib:year>
+				<bib:pages> 214:171-182</bib:pages>
+			</bib:article>
+		</bib:entry>
+		<bib:entry id="lacpdb">
+			<bib:article>
+				<bib:author> M.LEWIS,G.CHANG,N.C.HORTON,M.A.KERCHER,H.C.PACE,M.A.SCHUMACHER,R.G.BRENNAN,P.LU </bib:author>
+				<bib:title>CRYSTAL STRUCTURE OF THE LACTOSE OPERON REPRESSOR 
+AND ITS COMPLEXES WITH DNA AND INDUCER </bib:title>
+				<bib:journal>SCIENCE  </bib:journal>
+				<bib:year> 1996  </bib:year>
+				<bib:pages> 271:1247</bib:pages>
+			</bib:article>
+		</bib:entry>
+		<bib:entry id="pp">
+			<bib:article>
+				<bib:author> B Rost </bib:author>
+				<bib:title>PHD: predicting one-dimensional protein structure by profile based neural networks. </bib:title>
+				<bib:journal>Methods in Enzymology  </bib:journal>
+				<bib:year> 1996  </bib:year>
+				<bib:pages> 266:525-539</bib:pages>
+			</bib:article>
+		</bib:entry>
+	</bib:file>
+</document>

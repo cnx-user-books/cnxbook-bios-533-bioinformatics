@@ -1,0 +1,222 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:bib="http://bibtexml.sf.net/">
+ 
+  <title>RNA Secondary Structure Prediction</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>423e5c41-4642-487b-aa08-398e104fef58</md:uuid>
+</metadata>
+
+
+
+  <content>
+    <para id="intro">  
+The study of RNA structure calls for a distinct set of computational tools designed expressly for RNA applications.  Recall there are three major categories of RNA, messenger RNA (mRNA), transfer RNA (tRNA) and ribosomal RNA (rRNA).  Ribosomal RNA and ribozymes have catalytic functions, like proteins, while messenger RNA has an information storage function, like DNA.  A good resource for reviewing the major types of RNA and their functions can be found in the online <link url="http://www.rnabase.org/primer/">RNA Structure Primer </link>, available at the RNABase RNA Structure Database website
+        <cite target-id="RNABase"><cite-title>
+ RNABase The RNA Structure Database,
+ 	</cite-title></cite>
+    </para>
+    <para id="para1">
+RNA is usually thought of as a single stranded linear molecule, however, in a biological system this is not the case.  Frequently, different regions of the same RNA strand will fold together via base pair interactions to make intricate secondary and tertiary structures that are essential for correct biological function. Common secondary structure motifs include hairpin loops, stems, and bulges.  Diagrams of these motifs can be viewed on the <link url="http://www.imb-jena.de/ImgLibDoc/nana/IMAGE_NANA.html#sec_element">IMB JENA Nucleic Acid Nomenclature and Structure</link> web page, under section 8 of the Table of Contents, secondary structural elements.  To observe tertiary structure in an RNA molecule, view the structure of 
+<link url="http://ndbserver.rutgers.edu/atlas/xray/structures/T/trna04/trna04.html">phenylalanine tRNA</link> from  <cite target-id="trna"><cite-title>the yeast crystal structure
+</cite-title></cite>, available from the Nucleic Acid Database (NDB) Project, Rutgers.  
+    </para>
+    <para id="para2">
+Though RNA is usually single stranded, in some RNA virus genomes it will form a double stranded helix.  However, unlike DNA, RNA forms an A-form double helix.  The RNA double helix differs from that of the DNA double helix because of the presence of ribose, rather than deoxyribose, in the sugar phosphate backbone of the molecule.  The addition of a hydroxyl group at the C2 postion in the ribose sugar is responsible for the A-form geometry in double stranded RNA. The A-form makes a right-handed helix, like the B-form double helix, but is a shorter, wider helix than the B-form, and the major groove is deep, but narrow, making it virtually inaccessible to proteins.  It is in the major groove that the chemical groups are sequence-specific and dependent on base identity, and therefore, this is where proteins tend to bind a DNA double helix. Because the RNA A-form double helix contains a major groove that is too narrow and deep for proteins to access, the minor groove becomes more important for protein interactions with RNA helices.  Also, proteins that interact with specific RNA sequences commonly bind single-stranded RNA segments.  For an example of an RNA/protein complex, view the <cite target-id="virus"><cite-title> NDB entry</cite-title></cite> for the <link url="http://ndbserver.rutgers.edu/atlas/xray/structures/P/pr0010/pr0010.html">Protein/Hepatitis Delta Virus Ribozyme Complex</link>.  When a strand of DNA forms a double helix with a strand of RNA, this will also result in an A-form helix.  An example of a <cite target-id="rna_dna"><cite-title>DNA/RNA complex</cite-title></cite> can be found by viewing the NDB entry for the <link url="http://ndbserver.rutgers.edu/atlas/xray/structures/U/uh0001/uh0001.html">RNA-DNA complex formed by the 10-23 DNA enzyme</link>.  
+      </para>
+    <para id="para3">
+RNA molecules sometimes contain the unusual nucleotides ribothymidine, dihydrouridine, pseudouridine and inosine.  In addition, RNA somewhat commonly forms a G-U wobble base pair, and makes other non-canonical base pairs, a listing of which can be found on the George Fox group's <link url="http://prion.bchs.uh.edu/bp_type/all_record_page_by_type.html">Non-Canonical Base Pair Database</link> web page, University of Houston.         
+
+    </para>
+
+ <exercise id="ex1">
+    	<problem id="idm8283072">
+   	  <para id="prob1">
+   	  List three non-canonical base pairs identified on the web page, besides a G-U wobble base pair.
+    	  </para>
+     	</problem>
+ </exercise>
+
+    <para id="para3a">
+
+  It is clear to see that RNA molecules have many unique characteristics, distinct from the properties of DNA and protein structures.  Many of these characteristics can be exploited to predict RNA structure from a nucleotide sequence.
+    </para>
+    <para id="para4">
+One of the methodologies that is commonly used for RNA structure prediction is based on calculating free energy estimates for each possible fold, then choosing the fold that yields the lowest free energy.  These free energy values are a combination of energy values calculated for each pair of adjacent base pairs, plus loop or bulge energies.  The energy values are derived from melting studies of synthetically constructed oligoribonucleotides. For more information on the development of RNA free energy parameters, see the <link url="http://www.bioinfo.rpi.edu/~zukerm/rna/energy/node2.html#SECTION20">Development and References Page</link> of the Zuker-Turner RNA folding package.
+    </para>
+    <para id="para5">
+Compute the free energy of an RNA structure using the efn server, an 
+<link url="http://www.bioinfo.rpi.edu/applications/mfold/old/rna/energy/form1.cgi">RNA free energy</link> web site authored by Michael Zuker, Rensselaer Polytechnic Institute.  Copy and paste the following RNA sequence into the sequence query box.  
+    </para>
+     <code display="block" id="idp1553840">
+G G C G C G G C A C C G U C C G C G G A A C A A A C G G
+    </code> 
+    <para id="para6">
+Just below the sequence query box, there is a box where the secondary structure can be defined by specifying base pairs.  This is done using a triplet of numbers to define each stem region of consecutive base pairs.  The first number in the triplet defines the sequence number of the first base in the pair from the 5' end of the sequence.  The second number defines the sequence number of the opposing base in the pair.  The third number defines how many consecutive bases are involved in the stem.  In this example, use the following triplet:
+    </para>
+     <code display="block" id="idp4744192">
+10, 19, 3
+    </code> 
+    <para id="para7">
+The triplet in the above example means that the bases "C C G", number 10, 11 and 12, base pair with the bases "C G G", bases number 17, 18 and 19.  Paste the above triplet into the secondary structure box and click on the box that says, "Send data for processing".  
+</para>
+
+<exercise id="ex2">
+ 	<problem id="idp149168">
+ 	  <para id="prob2">
+ 	  What is the computed free energy for this RNA structure?  	  
+          </para>
+ 	</problem>
+</exercise>
+<exercise id="ex3">
+ 	<problem id="idp650400">
+ 	  <para id="prob3">Click on the link that says "png" to get a better picture of the structure. How many bases (non-paired) are in the loop in this structure?
+  	  </para>
+ 	</problem>
+</exercise>
+<exercise id="ex4">
+ 	<problem id="idp4274832">
+ 	  <para id="prob4">Save the png file to disk and send a copy to the course instructor.
+  	  </para>
+ 	</problem>
+</exercise>
+
+   <para id="para8">
+Now, use the same sequence, but specify a different secondary structure.  This time, paste the following triplet into the secondary structure box and send for data processing:
+   </para>
+     <code display="block" id="idp172928">
+3, 18, 5
+    </code> 
+
+<exercise id="ex5">
+ 	<problem id="idp4134368">
+ 	  <para id="prob5">
+What is the computed free energy for this RNA structure? 
+  	  </para>
+ 	</problem>
+</exercise>
+<exercise id="ex6">
+ 	<problem id="idm266896">
+ 	  <para id="prob6">Click on the link that says "png" to get a better picture of the structure. 
+ How many bases (non-paired) are in the loop in this structure?  	  </para>
+ 	</problem>
+</exercise>
+<exercise id="ex7">
+ 	<problem id="idp1495088">
+ 	  <para id="prob7">Save the png file to disk and send a copy to the course instructor.   	  </para>
+ 	</problem>
+</exercise>
+<exercise id="ex8">
+ 	<problem id="idm8562768">
+ 	  <para id="prob8">
+Which of these two structures is more likely to exist under physiological circumstances, given no additional constraints?
+  	  </para>
+ 	</problem>
+</exercise>
+
+   <para id="para9">
+A second approach to RNA secondary structure prediction is to look for conserved stem regions in related sequences.  This method involves looking for regions within sequences where stems have been conserved, even when the bases have mutated.  For this to happen, it would require that if a G mutated to an A, then the opposing C in the base pair would mutate to a U.  These regions are found by aligning related RNA sequences, and applying an algorithm that looks for these sorts of paired mutations in predicted stem regions.  Align the RNA sequences of the following tRNAs using <link url="http://www.ebi.ac.uk/clustalw/">ClustalW</link>.
+   </para>
+ <code display="block" id="idp4722736">
+&gt;1ASY:S ASPARTYL TRNA SYNTHETASE (ASPRS) 
+UCCGUGAUAGUUXAAXGGXCAGAAUGGGCGCXUGUCXCGUGCCAGAUXGGGGTXCAAUUC
+CCCGUCGCGGAGCCA
+
+&gt;1EIY:C TRNA(PHE)
+GCCGAGGUAGCUCAGUUGGUAGAGCAUGCGACUGAAAAUCGCAGUGUCCGCGGUUCGAUU
+CCGCGCCUCGGCACCA
+
+&gt;1EFW:C ASPARTYL-TRNA
+GGAGCGGXAGUUCAGXCGGXXAGAAUACCUGCCUXUCXCGCAGGGGXUCGCGGGXXCGAG
+UCCCGXCCGUUCC
+
+&gt;1EHZ:A TRANSFER RNA (PHE)
+GCGGAUUUAXCUCAGXXGGGAGAGCXCCAGAXUXAAXAXXUGGAGXUCXUGUGXXCGXUC
+CACAGAAUUCGCACCA
+
+</code>
+    <para id="warning">
+IMPORTANT: After ClustalW alignment, the program puts asterisk below conserved residues. These must be removed before submitting the alignment to the RNA secondary structures prediction server.
+    </para>
+    <para id="para10">
+Copy the multiple alignment and paste it into the query box at the 
+<link url="http://www.genebee.msu.su/services/rna2_reduced.html">RNA secondary structure prediction server</link>, Moscow State University. Click "submit query", and the results should appear within about 3 minutes.  Scroll down the page and view the section where the stem regions were identified, and their free energies were computed.
+    </para>
+<exercise id="ex9">
+ 	<problem id="idp4615408">
+ 	  <para id="prob9">
+How many stems are predicted? 
+  	  </para>
+ 	</problem>
+</exercise>
+<exercise id="ex10">
+ 	<problem id="idm833936">
+ 	  <para id="prob10">
+List each of their computed free energy values. 
+  	  </para>
+ 	</problem>
+</exercise>
+<exercise id="ex11">
+ 	<problem id="idm1356224">
+ 	  <para id="prob11">
+Continue to scroll down the page and look at the predicted structure diagram.  What is the total free energy of the structure? 
+  	  </para>
+ 	</problem>
+</exercise>
+<exercise id="ex12">
+ 	<problem id="idp555728">
+ 	  <para id="prob12">
+Does this structure that has been predicted from sequences agree well with the known structure of tRNAs?
+  	  </para>
+ 	</problem>
+</exercise>
+
+    <para id="conclusion">
+RNA structure has some distinct differences from DNA structure that can be exploited to yield secondary structure predictions that are usually reasonably accurate.  In addition, there are many on-line tools and databases that are specific to RNA.  Here, the use of a few of these tools has been illustrated, but take some time to view more of the links that are available on the
+<link url="http://www.imb-jena.de/RNA.html">RNA World Website</link>, Institut fur Molekulare Biotechnologie, Jena, Germany.
+   </para>
+
+
+  </content>  
+
+    <bib:file>
+      <bib:entry id="RNABase">
+       <bib:article>
+    	<bib:author>V. L. Murthy </bib:author>
+    	<bib:title> RNABase, The RNA Structure Database </bib:title>
+    	<bib:journal> http://www.rnabase.org </bib:journal>
+            <bib:year> Copyright 2000-2002  </bib:year>
+          </bib:article>
+      </bib:entry>
+
+       <bib:entry id="trna">
+       <bib:article>
+    	<bib:author> J.L. Sussman, S.R. Holbrook, R.W. Warrant,
+G.M. Church, S.-H. Kim </bib:author>
+    	<bib:title> Crystal Structure of Yeast Phenylalanine T-RNA </bib:title>
+    	<bib:journal> J. Mol. Biol.</bib:journal>
+            <bib:year> 1978 </bib:year>
+            <bib:volume>123 </bib:volume>
+           <bib:pages>607-630  </bib:pages>
+          </bib:article>
+      </bib:entry>
+
+       <bib:entry id="virus">
+       <bib:article>
+    	<bib:author> A.R. Ferre-D'Amare, K. Zhou, J.A. Doudna </bib:author>
+    	<bib:title> Crystal Structure of a Hepatitis Delta Virus Ribozyme </bib:title>
+    	<bib:journal> Nature </bib:journal>
+            <bib:year> 1998 </bib:year>
+            <bib:volume> 395</bib:volume>
+           <bib:pages>  567-574 </bib:pages>
+          </bib:article>
+      </bib:entry>
+       <bib:entry id="rna_dna">
+       <bib:article>
+    	<bib:author> J. Nowakowski, P.S. Shim, G.S. Prasad, C.D. Stout, G.F. Joyce </bib:author>
+    	<bib:title> Crystal Structure of an 82-Nucleotide RNA-DNA Complex Formed by the 10-23 DNA Enzyme </bib:title>
+    	<bib:journal> Nat. Struct. Biol. </bib:journal>
+            <bib:year>  1999</bib:year>
+            <bib:volume> 6</bib:volume>
+           <bib:pages>  151-156 </bib:pages>
+          </bib:article>
+      </bib:entry>
+    </bib:file>   
+</document>
